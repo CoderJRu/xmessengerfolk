@@ -115,8 +115,6 @@ app.post("/loginPhrase", async (req, res) => {
   }
 });
 
-app.listen(5000, "0.0.0.0", () => {
-  console.log("🚀 xmessenger-demos-lp2 server running on port 5000");
-  console.log("📱 Wallet functionality ready");
-  console.log("💾 Supabase database connected");
+app.listen(8080, () => {
+  console.log("server is running dick! at port 8080");
 });

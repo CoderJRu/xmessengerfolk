@@ -1,39 +1,62 @@
-// demosInstance.js - Demo SDK functionality
+import { DemosWebAuth } from "@kynesyslabs/demosdk/websdk";
+import { demos } from "@kynesyslabs/demosdk/websdk";
+import bip39 from "bip39";
 
-export const connectSdk = () => {
-  console.log("Demo SDK connected successfully");
-  return true;
-};
+export async function connectSdk() {
+  var result = await demos.connect("https://demosnode.discus.sh");
+  console.log(result);
+}
+
+//me();
+
+const identity = DemosWebAuth.getInstance();
 
 export const generateKeypair = async () => {
-  // Generate a simple mock keypair for demo purposes
-  const mockKeypair = {
-    publicKey: "demo_public_key_" + Date.now(),
-    privateKey: "demo_private_key_" + Date.now()
+  const mnemonics = bip39.generateMnemonic();
+  console.log("mememonics ", mnemonics);
+  const optional_seed = await bip39.mnemonicToSeed(mnemonics);
+  const [status, keypair] = await identity.create(optional_seed);
+  const privateKey = keypair.privateKey;
+  const publicKey = keypair.publicKey;
+  //console.log("privateKey is ", priavteKey);
+  //console.log("mnemonices is ", mnemonics);
+  //console.log("publicKey is ", publicKey);
+  // await loggingMnemonics(mnemonics);
+
+  // console.log("keypairs is ", keypair);
+  // console.log("status is ", status);
+
+  var newKeys = {
+    publicKey: Buffer.from(publicKey).toString("hex"),
+    privateKey: Buffer.from(privateKey).toString("hex"),
   };
-  
-  const mockMnemonics = [
-    "abandon", "ability", "able", "about", "above", "absent",
-    "absorb", "abstract", "absurd", "abuse", "access", "accident"
-  ];
-  
+
   return {
-    _mnemonics: mockMnemonics,
-    _status: "success",
-    _kepair: mockKeypair,
-    _publicKey: mockKeypair.publicKey,
-    _privateKey: mockKeypair.privateKey
+    _mnemonics: mnemonics,
+    _status: status,
+    _keypair: newKeys,
+    _publicKey: Buffer.from(publicKey).toString("hex"),
+    _privateKey: Buffer.from(privateKey).toString("hex"),
   };
 };
 
-export const loggingMnemonics = async (phraseList) => {
-  // Mock login with mnemonics
-  const mockKeypair = {
-    publicKey: Buffer.from("demo_restored_key_" + Date.now())
-  };
-  
+//generateKeypair();
+
+export const loggingMnemonics = async (mnemonics) => {
+  const seed = bip39.mnemonicToSeedSync(mnemonics);
+  const keypair = DemosWebAuth.keyPairFromMnemonic(seed);
+  const [status, message] = await identity.login(keypair.privateKey);
+  const msg = "Xmessenger is coming!⚔️⚔️⚔️";
+  const bufferMsg = Buffer.from(msg);
+  const [_status, signature] = await identity.sign(bufferMsg);
+  console.log("signature is ", message);
+  await identity.logout();
   return {
-    keypair: mockKeypair,
-    status: "success"
+    status: status,
+    keypair: keypair,
   };
+};
+
+export const loggingPrivateKey = async (privateKey) => {
+  const [status, message] = await identity.login(privateKey);
 };
