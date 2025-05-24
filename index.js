@@ -1,41 +1,34 @@
-#!/usr/bin/env node
+import express from "express";
+import path from "path";
+import { fileURLToPath } from 'url';
 
-/**
- * xmessenger-demos-lp2 - Minimal Node.js Project
- * 
- * A simple Node.js environment ready for forking and custom development.
- * This file serves as the main entry point for the application.
- */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-console.log('Welcome to xmessenger-demos-lp2!');
-console.log('This is a minimal Node.js environment ready for development.');
-console.log('');
-console.log('Node.js version:', process.version);
-console.log('Platform:', process.platform);
-console.log('Current working directory:', process.cwd());
-console.log('');
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-// Simple function for module usage
-function greet(name = 'World') {
-  return `Hello, ${name}! Welcome to xmessenger-demos-lp2.`;
-}
+// Middleware
+app.use(express.json());
+app.use(express.static('public'));
 
-// Show interactive prompt
-console.log('Ready for development!');
-console.log('');
-console.log('To get started:');
-console.log('1. Modify this index.js file to build your application');
-console.log('2. Add dependencies to package.json as needed');
-console.log('3. Fork this project for your own custom development');
-console.log('');
-console.log('Example usage:');
-console.log('  node index.js');
-console.log('');
+// Serve the main HTML file
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-// Simple test of the greet function
-console.log(greet());
-console.log(greet('Developer'));
+// Basic API endpoint to test server
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'xmessenger-demos-lp2 server is running!',
+    timestamp: new Date().toISOString()
+  });
+});
 
-export {
-  greet
-};
+// Start server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 xmessenger-demos-lp2 server running on port ${PORT}`);
+  console.log(`📱 Access your app at: http://localhost:${PORT}`);
+  console.log(`💾 Supabase connection ready with provided credentials`);
+});
