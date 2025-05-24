@@ -1,4 +1,4 @@
-# xm-demos-rap
+# xmessenger-demos-lp2
 
 A minimal Node.js project with basic setup for forking and custom development.
 
