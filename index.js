@@ -15,22 +15,7 @@ console.log('Platform:', process.platform);
 console.log('Current working directory:', process.cwd());
 console.log('');
 
-// Simple HTTP server example (optional - can be uncommented if needed)
-/*
-const http = require('http');
-const port = process.env.PORT || 3000;
-
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello from xm-demos-rap!\n');
-});
-
-server.listen(port, '0.0.0.0', () => {
-  console.log(`Server running at http://0.0.0.0:${port}/`);
-});
-*/
-
-// Export a simple function for module usage
+// Simple function for module usage
 function greet(name = 'World') {
   return `Hello, ${name}! Welcome to xm-demos-rap.`;
 }
