@@ -20,7 +20,7 @@ function greet(name = 'World') {
   return `Hello, ${name}! Welcome to xmessenger-demos-lp2.`;
 }
 
-// If running directly (not imported), show interactive prompt
+// Show interactive prompt
 console.log('Ready for development!');
 console.log('');
 console.log('To get started:');
