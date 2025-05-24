@@ -1,34 +1,122 @@
 import express from "express";
-import path from "path";
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+import { connectSdk, loggingMnemonics } from "./demosInstance.js";
 const app = express();
-const PORT = process.env.PORT || 5000;
+import cors from "cors";
+import { createClient } from "@supabase/supabase-js";
+import { generateKeypair } from "./demosInstance.js";
+import { generateID, generateFloatID, delay, abbrNum } from "./matheFunc.js";
+import { lastNames, firstNames } from "./names.js";
+import { constrainedMemory } from "process";
+const supaKey = process.env["SUPABASE_KEY"];
+const supaUrl = process.env["SUPABASE_URL"];
+const supabase = createClient(supaUrl, supaKey);
 
-// Middleware
-app.use(express.json());
-app.use(express.static('public'));
+const InsertDb = async (newData, pubKey) => {
+  try {
+    const { data, error } = await supabase.from("user").insert({
+      api: pubKey,
+      data: newData,
+    });
+  } catch (err) {}
+};
 
-// Serve the main HTML file
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+const UpdateDb = async (table, data, target, targetValue) => {
+  const { error } = await supabase
+    .from(table)
+    .update({
+      data: data,
+    })
+    .eq(target, targetValue);
+};
+
+const FetchDb = async (table, target, targetValue) => {
+  const { data: _data } = await supabase
+    .from(table)
+    .select()
+    .eq(target, targetValue);
+  return _data;
+};
+
+const corsOption = {
+  origin: [
+    "https://38091a36-f5e0-4f69-abf4-8e2354cc1aee-00-1mt2da426qtul.riker.replit.dev:3001/",
+    "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd",
+    "https://xbundle-dapp.replit.app",
+    "https://xbundle.cloud",
+  ],
+  optionSucessStatus: 200,
+};
+
+app.use(express.static("public"), cors(corsOption), express.json());
+
+connectSdk();
+//"https://demosnode.discus.sh"
+
+app.post("/generatePhrases", async (req, res) => {
+  try {
+    const { _mnemonics, _status, _kepair, _publicKey, _privateKey } =
+      await generateKeypair();
+    var resultsjson = { _mnemonics, _status, _kepair, _publicKey, _privateKey };
+    console.log(resultsjson);
+    res.status(200).json({ _res: resultsjson });
+  } catch (err) {
+    console.log(err);
+    res.status(200).json({ _res: "error" });
+  }
 });
 
-// Basic API endpoint to test server
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'xmessenger-demos-lp2 server is running!',
-    timestamp: new Date().toISOString()
-  });
+app.post("/createAccount", async (req, res) => {
+  try {
+    let bodyJson = req.body;
+    var _keyPair = bodyJson.Keypair;
+    var publicKey = _keyPair.publicKey;
+    console.log(_keyPair.publicKey);
+    //return;
+    var selectedFirstName = firstNames[generateID(0, firstNames.length - 1)];
+    var selectedLastName = lastNames[generateID(0, lastNames.length - 1)];
+    var _username =
+      selectedFirstName + " " + selectedLastName + "_" + generateID(1000, 9999);
+    var _newData = {
+      id: generateID(1010101010101, 1781109012010999),
+      username: _username,
+      publicKey: publicKey,
+    };
+    await InsertDb(_newData, publicKey);
+    res.status(200).json({ _res: "success", data: _newData });
+    //await InsertDbb()
+    //insert acc to db
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-// Start server
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 xmessenger-demos-lp2 server running on port ${PORT}`);
-  console.log(`📱 Access your app at: http://localhost:${PORT}`);
-  console.log(`💾 Supabase connection ready with provided credentials`);
+app.post("/loginPhrase", async (req, res) => {
+  try {
+    let bodyJson = req.body;
+    var _phraseList = bodyJson.PhraseList;
+    var status = await loggingMnemonics(_phraseList);
+    const decoder = new TextDecoder();
+    console.log(
+      "public is ",
+      Buffer.from(status.keypair.publicKey).toString("hex"),
+    );
+    var myData = await FetchDb(
+      "user",
+      "api",
+      Buffer.from(status.keypair.publicKey).toString("hex"),
+    );
+    if (myData.length > 0) {
+      var fetchedData = myData[0].data;
+      res.status(200).json({ _res: "success", data: fetchedData });
+    }
+  } catch (err) {
+    res.status(200).json({ _res: "error" });
+    console.log(err);
+  }
+});
+
+app.listen(5000, "0.0.0.0", () => {
+  console.log("🚀 xmessenger-demos-lp2 server running on port 5000");
+  console.log("📱 Wallet functionality ready");
+  console.log("💾 Supabase database connected");
 });
