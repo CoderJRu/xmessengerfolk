@@ -1,1 +1,21 @@
-{"name":"nodejs","version":"1.0.0","description":"","main":"index.js","type":"module","scripts":{"start":"node index.js","dev":"node index.js"},"dependencies":{"express":"^4.21.2","cors":"^2.8.5","@kynesyslabs/demosdk":"^2.2.44","@supabase/supabase-js":"^2.49.8"},"keywords":[],"author":"","license":"ISC"}
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build": "echo 'Build complete'"
+  },
+  "dependencies": {
+    "@kynesyslabs/demosdk": "^2.2.44",
+    "@supabase/supabase-js": "^2.49.8",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
