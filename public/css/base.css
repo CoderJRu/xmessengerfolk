@@ -759,6 +759,7 @@ text-underline-position: from-font;
   margin:auto;
   background-color: rgba(14, 16, 19, 0.99);
   display: flex;
+  z-index: 1002;
 }
 .hamburger-plane{
   font-weight:bold;
@@ -773,7 +774,7 @@ text-underline-position: from-font;
   background-color: rgba(43,43,43, 1);
   display: flex;
   transition: 1.2s;
-  z-index: 2;
+  z-index: 1002;
 }
 .xm-ul-menu.active{
   display: block;
