@@ -752,8 +752,8 @@ text-underline-position: from-font;
   text-align:center;
   margin: 0px auto;
   position: fixed;
-  right: 80px;
-  left: 60px;
+  right:80px;
+  left: 0px;
   top : 0;
   bottom: 0;
   margin:auto;
@@ -766,7 +766,7 @@ text-underline-position: from-font;
   text-align:center;
   margin: 0px auto;
   position: fixed;
-  right: 5500px;
+  right: 7500px;
   left :0px;
   top : 0;
   bottom: 0;
@@ -1294,10 +1294,16 @@ z-index: 1;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(14, 16, 19, 0.19);
+  background-color: rgba(14, 16, 19, 0.95);
+  background-image: url('../img/mask_background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   z-index: 900;
   overflow-y: auto;
   padding: 20px 0;
+  min-height: 100vh;
 }
 
 .nodes-plane.active {
@@ -1495,6 +1501,17 @@ z-index: 1;
   .home-div-content{
   display:none;
   }
+  
+  /* Ensure nodes plane background remains visible on mobile */
+  .nodes-plane {
+    background-color: rgba(14, 16, 19, 0.95) !important;
+    background-image: url('../img/mask_background.png') !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height: 100vh !important;
+  }
+  
   html{
     background-color: rgba(14, 16, 19, 0.99);
     /*
