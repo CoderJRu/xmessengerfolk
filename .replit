@@ -11,11 +11,14 @@ channel = "stable-24_05"
 [unitTest]
 language = "nodejs"
 
+[env]
+REPLIT_DISABLE_PACKAGE_LAYER = "1"
+
 [deployment]
 run = ["sh", "-c", "node index.js"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
-build = ["sh", "-c", "npm install"]
+build = ["sh", "-c", "npm ci"]
 
 [[ports]]
 localPort = 5000
