@@ -4,6 +4,7 @@ import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
 import { generateID, generateFloatID, delay, abbrNum } from "./matheFunc.js";
 import { lastNames, firstNames } from "./names.js";
+import DeploymentReadinessChecker from './deployment-checker.js';
 
 const app = express();
 
@@ -119,7 +120,41 @@ app.post("/loginPhrase", async (req, res) => {
   }
 });
 
+// Intelligent deployment readiness checker endpoint
+app.get("/deployment-status", async (req, res) => {
+  try {
+    const checker = new DeploymentReadinessChecker();
+    const result = await checker.runAllChecks();
+    
+    res.status(200).json({
+      ready: result.ready,
+      score: result.percentage,
+      details: {
+        total_checks: result.checks,
+        errors: result.errors,
+        warnings: result.warnings,
+        timestamp: new Date().toISOString()
+      },
+      message: result.ready ? "Application is ready for deployment!" : "Issues found - check logs for details"
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Deployment check failed", details: err.message });
+  }
+});
+
+// Quick health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "healthy",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    version: "1.0.0"
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Deployment checker available at: /deployment-status`);
 });
