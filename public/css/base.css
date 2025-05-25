@@ -1311,7 +1311,7 @@ z-index: 1;
   justify-content: center;
   right: 0;
   left : 0;
-  top : 60px;
+  top : 110px;
   bottom: 0;
   margin:auto;
   background:  rgba(14,16,19, 1);
@@ -1324,16 +1324,17 @@ z-index: 1;
 
 .nodes-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* Top Stats Section */
 .nodes-top-section {
-  margin-top: 0;
-  padding-top: 20px;
+  margin-top: 10;
+  padding-top: 700px;
   padding-bottom: 20px;
+ 
 }
 
 .nodes-stats-dual {
@@ -1515,16 +1516,8 @@ z-index: 1;
   display:none;
   }
   
-  /* Fix nodes-plane and nodes-top-section for mobile */
-  .nodes-plane {
-    padding: 40px 0 20px 0 !important;
-  }
-  
-  .nodes-top-section {
-    margin-top: 0;
-    padding-top: 10px;
-    padding-bottom: 15px;
-  }
+ 
+ 
   
   html{
     background-color: rgba(14, 16, 19, 0.99);
