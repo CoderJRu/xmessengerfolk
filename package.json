@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "build": "echo 'Build complete - Node.js app ready for deployment!'"
   },
   "dependencies": {
     "@kynesyslabs/demosdk": "^2.2.44",
