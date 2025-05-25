@@ -1301,7 +1301,24 @@ z-index: 1;
 }
 
 .nodes-plane.active {
-  display: block;
+  text-align:center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0px auto;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  left : 0;
+  top : 60px;
+  bottom: 0;
+  margin:auto;
+  background:  rgba(14,16,19, 1);
+  display: flex;
+  align-items:center;
+  z-index: 1;
+  opacity: 1;
+   transition: 1.2s;
 }
 
 .nodes-container {
@@ -1313,8 +1330,9 @@ z-index: 1;
 
 /* Top Stats Section */
 .nodes-top-section {
-  margin-bottom: 40px;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 
 .nodes-stats-dual {
@@ -1495,6 +1513,14 @@ z-index: 1;
   .home-div-content{
   display:none;
   }
+  
+  /* Fix nodes-top-section for mobile */
+  .nodes-top-section {
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  
   html{
     background-color: rgba(14, 16, 19, 0.99);
     /*
