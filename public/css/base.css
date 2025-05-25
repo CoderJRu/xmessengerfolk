@@ -1312,12 +1312,13 @@ z-index: 1;
 
 /* Top Stats Section */
 .nodes-top-section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding-top: 20px;
 }
 
 .nodes-stats-dual {
   display: flex;
-  gap: 40px;
+  gap: 50px;
 }
 
 .nodes-stat-col {
@@ -1328,14 +1329,14 @@ z-index: 1;
   color: #888;
   font-size: 14px;
   font-weight: 400;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
 }
 
 .nodes-stat-value-large {
   color: #FFF;
   font-size: 28px;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
 }
 
 .nodes-stat-desc {
@@ -1346,14 +1347,14 @@ z-index: 1;
 
 /* Chart Wrapper */
 .nodes-chart-wrapper {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .nodes-section-label {
   color: #FFF;
   font-size: 14px;
   font-weight: 400;
-  margin: 0 0 15px 0;
+  margin: 0 0 18px 0;
 }
 
 .nodes-main-chart {
@@ -1361,7 +1362,7 @@ z-index: 1;
   height: 100px;
   background-color: #C8C8C8;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1390,8 +1391,8 @@ z-index: 1;
 /* Dual Stats */
 .nodes-dual-stats {
   display: flex;
-  gap: 40px;
-  margin-bottom: 30px;
+  gap: 50px;
+  margin-bottom: 40px;
 }
 
 .nodes-stat-block {
@@ -1402,7 +1403,7 @@ z-index: 1;
   color: #888;
   font-size: 14px;
   font-weight: 400;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
 }
 
 .nodes-value {
@@ -1415,41 +1416,41 @@ z-index: 1;
 .nodes-sub {
   color: #666;
   font-size: 12px;
-  margin: 5px 0 0 0;
+  margin: 8px 0 0 0;
 }
 
 /* Single Stats */
 .nodes-single-stat {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .nodes-header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .nodes-divider {
   border: none;
   border-top: 1px solid #333;
-  margin: 20px 0 0 0;
+  margin: 25px 0 0 0;
 }
 
 /* Chart Sections */
 .nodes-chart-section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .nodes-line-graph {
-  margin-top: 15px;
+  margin-top: 20px;
   position: relative;
 }
 
 .nodes-x-axis {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 0 10px;
 }
 
@@ -1462,9 +1463,9 @@ z-index: 1;
 .nodes-bars {
   display: flex;
   align-items: flex-end;
-  gap: 6px;
+  gap: 8px;
   height: 50px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .nodes-bar {
