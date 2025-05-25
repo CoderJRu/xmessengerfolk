@@ -1,12 +1,36 @@
 import express from "express";
-import { connectSdk, loggingMnemonics } from "./demosInstance.js";
-const app = express();
 import cors from "cors";
-import { createClient } from "@supabase/supabase-js";
-import { generateKeypair } from "./demosInstance.js";
-import { generateID, generateFloatID, delay, abbrNum } from "./matheFunc.js";
-import { lastNames, firstNames } from "./names.js";
-import { constrainedMemory } from "process";
+const app = express();
+
+// Add error handling for unhandled rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+// Import other modules with error handling
+let connectSdk, loggingMnemonics, generateKeypair, generateID, generateFloatID, delay, abbrNum, lastNames, firstNames, createClient;
+
+try {
+  const demoModule = await import("./demosInstance.js");
+  connectSdk = demoModule.connectSdk;
+  loggingMnemonics = demoModule.loggingMnemonics;
+  generateKeypair = demoModule.generateKeypair;
+  
+  const mathModule = await import("./matheFunc.js");
+  generateID = mathModule.generateID;
+  generateFloatID = mathModule.generateFloatID;
+  delay = mathModule.delay;
+  abbrNum = mathModule.abbrNum;
+  
+  const namesModule = await import("./names.js");
+  lastNames = namesModule.lastNames;
+  firstNames = namesModule.firstNames;
+  
+  const supabaseModule = await import("@supabase/supabase-js");
+  createClient = supabaseModule.createClient;
+} catch (error) {
+  console.log('Module import error:', error.message);
+}
 const supaKey = process.env["SUPABASE_KEY"];
 const supaUrl = process.env["SUPABASE_URL"];
 const supabase = createClient(supaUrl, supaKey);
