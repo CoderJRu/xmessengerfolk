@@ -18,7 +18,7 @@ REPLIT_DISABLE_PACKAGE_LAYER = "1"
 run = ["sh", "-c", "node index.js"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
-build = ["sh", "-c", "npm ci && npm install"]
+build = ["sh", "-c", "npm ci"]
 
 [[ports]]
 localPort = 5000
