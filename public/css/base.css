@@ -838,7 +838,7 @@ text-underline-position: from-font;
 .hamburger{
   margin: auto 10px;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 1000;
 }
 .Header-bar{
   display: block;
@@ -938,7 +938,7 @@ text-underline-position: from-font;
   line-height: 22px; /* 137.5% */
 }
 .hamburger.active{
-  z-index: 2;
+  z-index: 1000;
   position: fixed;
   top:10px;
   left:0;
