@@ -1347,4 +1347,224 @@ z-index: 1;
     gap: 30px;
   }
 
+/* Nodes Plane Styles */
+.nodes-plane {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0E1013;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.nodes-plane.active {
+  display: block;
+}
+
+.nodes-top-stats {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(51, 51, 51, 0.3);
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+.nodes-stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.nodes-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nodes-stat-label {
+  color: #999;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+.nodes-stat-value {
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+}
+
+.nodes-stat-subtext {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.nodes-stat-sub {
+  color: #666;
+  font-size: 12px;
+  margin: 0;
+}
+
+.nodes-chart-section {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.nodes-section-title {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.nodes-chart-container {
+  width: 100%;
+  height: 120px;
+  background-color: rgba(200, 200, 200, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.nodes-chart-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nodes-chart-center-text {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.nodes-chart-subtext {
+  color: #666;
+  font-size: 12px;
+  text-align: left;
+  margin: 0;
+}
+
+.nodes-stats-grid {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.nodes-grid-row {
+  display: flex;
+  gap: 20px;
+}
+
+.nodes-grid-item {
+  flex: 1;
+  text-align: left;
+}
+
+.nodes-grid-label {
+  color: #999;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 5px 0;
+}
+
+.nodes-grid-value {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.nodes-grid-sub {
+  color: #666;
+  font-size: 12px;
+  margin: 0;
+}
+
+.nodes-single-metric {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.nodes-success-rates {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.nodes-metric-item {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.nodes-metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.nodes-mtps-section {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.nodes-line-chart {
+  margin-top: 15px;
+  position: relative;
+}
+
+.nodes-chart-x-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.nodes-chart-x-labels span {
+  color: #666;
+  font-size: 12px;
+}
+
+.nodes-performance {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.nodes-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 60px;
+  margin-top: 15px;
+}
+
+.nodes-bar {
+  flex: 1;
+  background-color: #FFF;
+  border-radius: 2px;
+  min-height: 10px;
+  opacity: 0.8;
+}
+
+.nodes-status-breakdown {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
  }
