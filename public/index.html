@@ -492,84 +492,81 @@
           </div>
         </div>
 
-        <div class="dsh-items">
-          <!-- Top Stats Row -->
-          <div class="nodes-top-stats">
-            <div class="nodes-stat-section">
-              <div class="nodes-stat-row">
-                <div class="nodes-stat-item">
-                  <p class="nodes-stat-label">mTPS</p>
-                  <p class="nodes-stat-label">Latency</p>
-                </div>
-                <div class="nodes-stat-item">
-                  <p class="nodes-stat-value">3147.62</p>
-                  <p class="nodes-stat-value">1%</p>
-                </div>
+        <div class="nodes-container">
+          <!-- Top Stats Section -->
+          <div class="nodes-top-section">
+            <div class="nodes-stats-dual">
+              <div class="nodes-stat-col">
+                <p class="nodes-stat-label">mTPS</p>
+                <p class="nodes-stat-value-large">3147.62</p>
+                <p class="nodes-stat-desc">Mean 24hr mTPS</p>
               </div>
-              <div class="nodes-stat-subtext">
-                <p class="nodes-stat-sub">Mean 24hr mTPS</p>
-                <p class="nodes-stat-sub">Mean 24hr latency</p>
+              <div class="nodes-stat-col">
+                <p class="nodes-stat-label">Latency</p>
+                <p class="nodes-stat-value-large">1%</p>
+                <p class="nodes-stat-desc">Mean 24hr latency</p>
               </div>
             </div>
           </div>
 
           <!-- Nodes Chart Section -->
-          <div class="nodes-chart-section">
-            <p class="nodes-section-title">Nodes</p>
-            <div class="nodes-chart-container">
-              <div class="nodes-chart-placeholder">
-                <p class="nodes-chart-center-text">Mins</p>
+          <div class="nodes-chart-wrapper">
+            <p class="nodes-section-label">Nodes</p>
+            <div class="nodes-main-chart">
+              <div class="nodes-chart-area">
+                <p class="nodes-chart-placeholder-text">Mins</p>
               </div>
             </div>
-            <p class="nodes-chart-subtext">Mean 24hr latency</p>
+            <p class="nodes-chart-caption">Mean 24hr latency</p>
           </div>
 
-          <!-- Stats Grid -->
-          <div class="nodes-stats-grid">
-            <div class="nodes-grid-row">
-              <div class="nodes-grid-item">
-                <p class="nodes-grid-label">Total rounds</p>
-                <p class="nodes-grid-value">236.13m</p>
-              </div>
-              <div class="nodes-grid-item">
-                <p class="nodes-grid-label">Average throughput / hr</p>
-                <p class="nodes-grid-value">11.6 GB</p>
-              </div>
+          <!-- Two Column Stats -->
+          <div class="nodes-dual-stats">
+            <div class="nodes-stat-block">
+              <p class="nodes-label">Total rounds</p>
+              <p class="nodes-value">236.13m</p>
+            </div>
+            <div class="nodes-stat-block">
+              <p class="nodes-label">Average throughput / hr</p>
+              <p class="nodes-value">11.6 GB</p>
             </div>
           </div>
 
-          <div class="nodes-single-metric">
-            <p class="nodes-grid-label">Total throughput (24hr)</p>
-            <p class="nodes-grid-value">278 GB</p>
+          <!-- Single Stat -->
+          <div class="nodes-single-stat">
+            <p class="nodes-label">Total throughput (24hr)</p>
+            <p class="nodes-value">278 GB</p>
+            <hr class="nodes-divider">
           </div>
 
-          <!-- Success Rates -->
-          <div class="nodes-success-rates">
-            <div class="nodes-metric-item">
-              <p class="nodes-grid-label">Realtime success rate (24hr)</p>
-              <p class="nodes-grid-value">99.69%</p>
+          <!-- Success Rate 1 -->
+          <div class="nodes-single-stat">
+            <p class="nodes-label">Realtime success rate (24hr)</p>
+            <p class="nodes-value">99.69%</p>
+            <hr class="nodes-divider">
+          </div>
+
+          <!-- Success Rate 2 with Arrow -->
+          <div class="nodes-single-stat nodes-with-arrow">
+            <div class="nodes-header-row">
+              <p class="nodes-label">Precomp success rate</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 12L10 8L6 4" stroke="white" stroke-width="1.5"/>
+              </svg>
             </div>
-            
-            <div class="nodes-metric-item nodes-with-arrow">
-              <div class="nodes-metric-header">
-                <p class="nodes-grid-label">Precomp success rate</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M6 12L10 8L6 4" stroke="white" stroke-width="1.5"/>
-                </svg>
-              </div>
-              <p class="nodes-grid-value">94.79%</p>
-            </div>
+            <p class="nodes-value">94.79%</p>
+            <hr class="nodes-divider">
           </div>
 
           <!-- mTPS Chart -->
-          <div class="nodes-mtps-section">
-            <p class="nodes-grid-label">mTPS (24hr)</p>
-            <div class="nodes-line-chart">
-              <svg width="100%" height="60" viewBox="0 0 300 60">
-                <polyline points="10,45 60,42 110,38 160,35 210,30 260,25 290,20" 
-                          stroke="white" stroke-width="2" fill="none"/>
+          <div class="nodes-chart-section">
+            <p class="nodes-label">mTPS (24hr)</p>
+            <div class="nodes-line-graph">
+              <svg width="100%" height="50" viewBox="0 0 280 50">
+                <polyline points="20,35 70,32 120,28 170,25 220,20 270,15" 
+                          stroke="white" stroke-width="1.5" fill="none"/>
               </svg>
-              <div class="nodes-chart-x-labels">
+              <div class="nodes-x-axis">
                 <span>1</span>
                 <span>6</span>
                 <span>12</span>
@@ -577,53 +574,54 @@
                 <span>24</span>
               </div>
             </div>
+            <hr class="nodes-divider">
           </div>
 
-          <!-- Performance Section -->
-          <div class="nodes-performance">
-            <div class="nodes-metric-header">
-              <p class="nodes-grid-label">Performance</p>
+          <!-- Performance with Arrow -->
+          <div class="nodes-chart-section">
+            <div class="nodes-header-row">
+              <p class="nodes-label">Performance</p>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 12L10 8L6 4" stroke="white" stroke-width="1.5"/>
               </svg>
             </div>
-            
-            <div class="nodes-bar-chart">
-              <div class="nodes-bar" style="height: 25%;"></div>
-              <div class="nodes-bar" style="height: 40%;"></div>
-              <div class="nodes-bar" style="height: 65%;"></div>
+            <div class="nodes-bars">
+              <div class="nodes-bar" style="height: 20%;"></div>
+              <div class="nodes-bar" style="height: 35%;"></div>
+              <div class="nodes-bar" style="height: 60%;"></div>
               <div class="nodes-bar" style="height: 85%;"></div>
               <div class="nodes-bar" style="height: 100%;"></div>
             </div>
+            <hr class="nodes-divider">
           </div>
 
-          <!-- Version Info -->
-          <div class="nodes-stats-grid">
-            <div class="nodes-grid-row">
-              <div class="nodes-grid-item">
-                <p class="nodes-grid-label">Active validators</p>
-                <p class="nodes-grid-value">349</p>
-                <p class="nodes-grid-sub">5th local</p>
-              </div>
-              <div class="nodes-grid-item">
-                <p class="nodes-grid-label">Min server version</p>
-                <p class="nodes-grid-value">3.1.0</p>
-              </div>
+          <!-- Active Validators & Server Version -->
+          <div class="nodes-dual-stats">
+            <div class="nodes-stat-block">
+              <p class="nodes-label">Active validators</p>
+              <p class="nodes-value">349</p>
+              <p class="nodes-sub">5th local</p>
+            </div>
+            <div class="nodes-stat-block">
+              <p class="nodes-label">Min server version</p>
+              <p class="nodes-value">3.1.0</p>
             </div>
           </div>
 
-          <div class="nodes-single-metric">
-            <p class="nodes-grid-label">Min gateway version</p>
-            <p class="nodes-grid-value">3.1.0</p>
+          <!-- Gateway Version -->
+          <div class="nodes-single-stat">
+            <p class="nodes-label">Min gateway version</p>
+            <p class="nodes-value">3.1.0</p>
+            <hr class="nodes-divider">
           </div>
 
           <!-- Node Status Breakdown -->
-          <div class="nodes-status-breakdown">
-            <p class="nodes-grid-label">Node status breakdown</p>
-            <div class="nodes-bar-chart">
-              <div class="nodes-bar" style="height: 20%;"></div>
-              <div class="nodes-bar" style="height: 35%;"></div>
-              <div class="nodes-bar" style="height: 55%;"></div>
+          <div class="nodes-chart-section">
+            <p class="nodes-label">Node status breakdown</p>
+            <div class="nodes-bars">
+              <div class="nodes-bar" style="height: 15%;"></div>
+              <div class="nodes-bar" style="height: 30%;"></div>
+              <div class="nodes-bar" style="height: 50%;"></div>
               <div class="nodes-bar" style="height: 75%;"></div>
               <div class="nodes-bar" style="height: 100%;"></div>
             </div>
