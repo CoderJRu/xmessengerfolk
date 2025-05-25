@@ -1,16 +1,22 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@kynesyslabs/demosdk": "^2.2.44",
-    "@supabase/supabase-js": "^2.49.8",
-    "cors": "2.8.5",
-    "express": "4.21.2"
+    "@supabase/supabase-js": "^2.49.4",
+    "@types/node": "^18.0.6",
+    "bip39": "^3.1.0",
+    "bs58": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
   }
 }

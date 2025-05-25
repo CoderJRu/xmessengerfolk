@@ -1,40 +1,25 @@
-modules = ["nodejs-20", "web", "postgresql-16"]
-run = "npm run dev"
-hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+entrypoint = "index.js"
+modules = ["nodejs-20"]
+hidden = [".config", "package-lock.json"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
 
 [nix]
 channel = "stable-24_05"
 
+[unitTest]
+language = "nodejs"
+
 [deployment]
-deploymentTarget = "autoscale"
-build = ["sh", "-c", "npm install"]
-run = ["sh", "-c", "npm run start"]
+run = ["node", "index.js"]
+deploymentTarget = "cloudrun"
+ignorePorts = false
 
 [[ports]]
 localPort = 5000
-externalPort = 80
+externalPort = 5000
 
 [[ports]]
 localPort = 8080
-externalPort = 8080
-
-[workflows]
-runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Start application"
-
-[[workflows.workflow]]
-name = "Start application"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
-waitForPort = 5000
+externalPort = 80
