@@ -115,6 +115,7 @@ app.post("/loginPhrase", async (req, res) => {
   }
 });
 
-app.listen(8080, () => {
-  console.log("server is running dick! at port 8080");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`server is running dick! at port ${PORT}`);
 });
