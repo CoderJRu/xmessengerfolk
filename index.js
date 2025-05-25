@@ -33,32 +33,61 @@ try {
 }
 const supaKey = process.env["SUPABASE_KEY"];
 const supaUrl = process.env["SUPABASE_URL"];
-const supabase = createClient(supaUrl, supaKey);
+let supabase;
+
+// Initialize Supabase with error handling
+if (createClient && supaUrl && supaKey) {
+  try {
+    supabase = createClient(supaUrl, supaKey);
+  } catch (error) {
+    console.log('Supabase initialization error:', error.message);
+  }
+} else {
+  console.log('Supabase credentials not available');
+}
 
 const InsertDb = async (newData, pubKey) => {
   try {
+    if (!supabase) return { error: 'Database not available' };
     const { data, error } = await supabase.from("user").insert({
       api: pubKey,
       data: newData,
     });
-  } catch (err) {}
+    return { data, error };
+  } catch (err) {
+    console.log('InsertDb error:', err.message);
+    return { error: err.message };
+  }
 };
 
 const UpdateDb = async (table, data, target, targetValue) => {
-  const { error } = await supabase
-    .from(table)
-    .update({
-      data: data,
-    })
-    .eq(target, targetValue);
+  try {
+    if (!supabase) return { error: 'Database not available' };
+    const { error } = await supabase
+      .from(table)
+      .update({
+        data: data,
+      })
+      .eq(target, targetValue);
+    return { error };
+  } catch (err) {
+    console.log('UpdateDb error:', err.message);
+    return { error: err.message };
+  }
 };
 
 const FetchDb = async (table, target, targetValue) => {
-  const { data: _data } = await supabase
-    .from(table)
-    .select()
-    .eq(target, targetValue);
-  return _data;
+  try {
+    if (!supabase) return [];
+    const { data: _data } = await supabase
+      .from(table)
+      .select()
+      .eq(target, targetValue);
+    return _data || [];
+  } catch (err) {
+    console.log('FetchDb error:', err.message);
+    return [];
+  }
 };
 
 const corsOption = {
