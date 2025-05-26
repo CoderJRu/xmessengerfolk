@@ -84,16 +84,31 @@ function refresh() {
 }
 
 // Toggle switch functionality for swap/send
-document.getElementById("swap-send-toggle").addEventListener("change", function() {
-  if (this.checked) {
+function handleToggleSwitch(isChecked) {
+  if (isChecked) {
     // Switch is ON - Show Send
     document.getElementById("swap-reg").setAttribute("hidden", true);
     document.getElementById("send-reg").removeAttribute("hidden");
+    // Sync both toggles
+    document.getElementById("swap-send-toggle").checked = true;
+    document.getElementById("swap-send-toggle-send").checked = true;
   } else {
     // Switch is OFF - Show Swap
     document.getElementById("send-reg").setAttribute("hidden", true);
     document.getElementById("swap-reg").removeAttribute("hidden");
+    // Sync both toggles
+    document.getElementById("swap-send-toggle").checked = false;
+    document.getElementById("swap-send-toggle-send").checked = false;
   }
+}
+
+// Add event listeners to both toggles
+document.getElementById("swap-send-toggle").addEventListener("change", function() {
+  handleToggleSwitch(this.checked);
+});
+
+document.getElementById("swap-send-toggle-send").addEventListener("change", function() {
+  handleToggleSwitch(this.checked);
 });
 //
 
