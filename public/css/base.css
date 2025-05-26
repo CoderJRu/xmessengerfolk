@@ -461,30 +461,34 @@ input:checked + .toggle-slider:before {
   letter-spacing: 1px;
 }
 
-/* Slippage Container */
-.slippage-container {
+/* Slippage Tab Container */
+.slippage-tab-container {
   display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  justify-content: flex-end;
+  padding: 0 20px;
+  margin-bottom: 15px;
+  margin-top: 20px;
 }
 
 .slippage-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--Text-Primary, var(--White, #FFF));
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 12px;
   font-family: "Helvetica Neue";
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .slippage-button:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 .send-button{
   position: relative;
