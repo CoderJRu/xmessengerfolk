@@ -473,7 +473,7 @@ input:checked + .toggle-slider:before {
   margin-right: auto;
 }
 
-@media(max-width: 900px) {
+@media(max-width: 600px) {
   .control-header {
     width: 90%;
     padding: 15px 10px;
