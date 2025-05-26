@@ -504,6 +504,60 @@ input:checked + .toggle-slider:before {
   width: 20px;
   height: 20px;
 }
+
+/* Dashboard Tab Styling */
+.dashboard-tab-title {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dashboard-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-item-single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-label {
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.stat-value {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.stat-value-large {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
 .send-button{
   position: relative;
   top: -10px;
