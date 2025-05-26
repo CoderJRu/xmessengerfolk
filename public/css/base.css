@@ -473,6 +473,13 @@ input:checked + .toggle-slider:before {
   margin-right: auto;
 }
 
+@media(max-width: 900px) {
+  .control-header {
+    width: 90%;
+    padding: 15px 10px;
+  }
+}
+
 /* Settings Icon Button */
 .settings-icon-button {
   background: rgba(255, 255, 255, 0.1);
