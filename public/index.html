@@ -182,20 +182,24 @@
     </section>  
     <!--Swap and Send Frame-->
     <section class = "swap-plane">
+      
+      <!-- Shared Toggle Switch -->
+      <div class="swap-toggle-header">
+        <div class="toggle-container">
+          <span class="toggle-label">Swap</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="swap-send-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-label">Send</span>
+        </div>
+      </div>
   
       <div id="swap-reg" class ="dsh-items-upper">
         <div class = "topdiv-margin-blend">
            <div class="nodes-flex-div">
              <div class="swap-parent-div">
-               <!-- Toggle Switch for Swap/Send -->
-               <div class="toggle-container">
-                 <span class="toggle-label">Swap</span>
-                 <label class="toggle-switch">
-                   <input type="checkbox" id="swap-send-toggle">
-                   <span class="toggle-slider"></span>
-                 </label>
-                 <span class="toggle-label">Send</span>
-               </div>
+               <!-- Swap section content -->
              </div>
              <button class="slippage-button">3% Slippage</button>
            </div>

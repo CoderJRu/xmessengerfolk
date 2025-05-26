@@ -392,6 +392,16 @@ margin: auto -40px;
 .swap-text{
 
 }
+/* Shared Toggle Header */
+.swap-toggle-header {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
+
 /* Toggle Switch Styles */
 .toggle-container {
   display: flex;
