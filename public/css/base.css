@@ -460,6 +460,32 @@ input:checked + .toggle-slider:before {
   margin: 0;
   letter-spacing: 1px;
 }
+
+/* Slippage Container */
+.slippage-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.slippage-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--Text-Primary, var(--White, #FFF));
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slippage-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
 .send-button{
   position: relative;
   top: -10px;
