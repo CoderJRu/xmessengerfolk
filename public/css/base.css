@@ -390,15 +390,27 @@ margin: auto -40px;
   display: flex;
 }
 .swap-text{
+
+}
+.swap-text:active{
+  font-weight: bold;
+  border: 1px solid #61615c;
+  border-radius: 10px;
+}
+.swap-text{
+  font-weight: bold;
+  border: 1px solid #fdfdd3;
+  border-radius: 10px;
   color: var(--Text-Primary, var(--White, #FFF));
   top: -14px;
   right: -10px;
   position:relative;
+  letter-spacing: 1px;
   /* Body Strong */
   font-family: "Helvetica Neue";
-  font-size: 16px;
+  font-size: 26px;
   font-style: normal;
-  font-weight: 500;
+ 
 }
 .send-button{
   position: relative;
@@ -860,7 +872,6 @@ text-underline-position: from-font;
   margin: 10px auto;
   position: relative;
   top: -35px;
-
 }
 .xm-para{
   text-align: center;
