@@ -83,13 +83,17 @@ function refresh() {
   
 }
 
-document.getElementById("swap-return").addEventListener("click", () => {
-  document.getElementById("send-reg").setAttribute("hidden", true);
-  document.getElementById("swap-reg").removeAttribute("hidden");
-});
-document.getElementById("send-return").addEventListener("click", () => {
-  document.getElementById("swap-reg").setAttribute("hidden", true);
-  document.getElementById("send-reg").removeAttribute("hidden");
+// Toggle switch functionality for swap/send
+document.getElementById("swap-send-toggle").addEventListener("change", function() {
+  if (this.checked) {
+    // Switch is ON - Show Send
+    document.getElementById("swap-reg").setAttribute("hidden", true);
+    document.getElementById("send-reg").removeAttribute("hidden");
+  } else {
+    // Switch is OFF - Show Swap
+    document.getElementById("send-reg").setAttribute("hidden", true);
+    document.getElementById("swap-reg").removeAttribute("hidden");
+  }
 });
 //
 

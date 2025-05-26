@@ -392,25 +392,73 @@ margin: auto -40px;
 .swap-text{
 
 }
-.swap-text:active{
-  font-weight: bold;
-  border: 1px solid #61615c;
-  border-radius: 10px;
+/* Toggle Switch Styles */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.swap-text{
-  font-weight: bold;
-  border: 1px solid #fdfdd3;
-  border-radius: 10px;
+
+.toggle-label {
   color: var(--Text-Primary, var(--White, #FFF));
-  top: -14px;
-  right: -10px;
-  position:relative;
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-weight: 600;
   letter-spacing: 1px;
-  /* Body Strong */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.section-title {
+  color: var(--Text-Primary, var(--White, #FFF));
   font-family: "Helvetica Neue";
   font-size: 26px;
-  font-style: normal;
- 
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
 }
 .send-button{
   position: relative;
