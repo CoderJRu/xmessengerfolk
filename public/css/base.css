@@ -461,34 +461,38 @@ input:checked + .toggle-slider:before {
   letter-spacing: 1px;
 }
 
-/* Slippage Tab Container */
-.slippage-tab-container {
+/* Control Header */
+.control-header {
   display: flex;
-  justify-content: flex-end;
-  padding: 0 20px;
-  margin-bottom: 15px;
-  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 10px;
 }
 
-.slippage-button {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+/* Settings Icon Button */
+.settings-icon-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--Text-Primary, var(--White, #FFF));
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-family: "Helvetica Neue";
-  font-size: 13px;
-  font-weight: 500;
+  padding: 8px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.slippage-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-1px);
+.settings-icon-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.settings-icon-button svg {
+  width: 20px;
+  height: 20px;
 }
 .send-button{
   position: relative;
