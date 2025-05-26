@@ -466,7 +466,7 @@ input:checked + .toggle-slider:before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 15px 20px;
   margin-bottom: 10px;
   max-width: 400px;
   margin-left: auto;
