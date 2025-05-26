@@ -757,7 +757,7 @@ text-underline-position: from-font;
   top : 0;
   bottom: 0;
   margin:auto;
-  background-color: rgba(14, 16, 19, 0.99);
+  background-color: rgba(14, 16, 19, 0.4);
   display: flex;
   z-index: 1000;
 }
@@ -781,16 +781,18 @@ text-underline-position: from-font;
   list-style: none;
   line-height: 40px;
   font-weight: 10; 
+  top: 20px;
   font-size: 20px;
   position: relative;
-  left:0;
+  left:100px;
 }
 .xm-ul-menu{
+  top: 20px;
   display: block;
   list-style: none;
   line-height: 40px;
   position: relative;
-  left: 1500px;
+  left: -1000px;
   font-weight: 10; 
   font-size: 20px;
   transition: 1.2s;
@@ -1180,6 +1182,7 @@ z-index: 1;
   padding: 8px;
   justify-content: center;
   align-items: center;
+  max-width: 60px;
   gap: 4px;
 }
 
