@@ -751,10 +751,12 @@ input:checked + .toggle-slider:before {
 }
 
 .vertical-divider {
-  width: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
   height: 100%;
   align-self: stretch;
+  margin: 0 10px;
+  border-radius: 1px;
 }
 .send-button{
   position: relative;
