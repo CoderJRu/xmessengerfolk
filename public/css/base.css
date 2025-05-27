@@ -522,12 +522,6 @@ input:checked + .toggle-slider:before {
   gap: 20px;
 }
 
-/* Reduce spacing for single-item dashboard sections */
-.dashboard-stats:has(.stat-item-single) {
-  gap: 5px;
-  margin-bottom: 5px;
-}
-
 .stat-item {
   display: flex;
   justify-content: space-between;
@@ -538,8 +532,6 @@ input:checked + .toggle-slider:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
 }
 
 .stat-label {
