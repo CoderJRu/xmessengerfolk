@@ -755,6 +755,14 @@ input:checked + .toggle-slider:before {
   background: rgba(255, 255, 255, 0.2);
   height:220px;
 }
+
+.nodes-stat-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  height: 100%;
+  align-self: stretch;
+}
+
 .send-button{
   position: relative;
   top: -10px;
@@ -1672,7 +1680,7 @@ z-index: 1;
   justify-content: center;
   right: 0;
   left : 0;
-  top : 210px;
+  top : 110px;
   bottom: 0;
   margin:auto;
   background:  rgba(14,16,19, 1);
