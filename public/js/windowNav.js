@@ -46,6 +46,15 @@ document.getElementById("nodes").addEventListener("click", function(){
       refresh();
     }
 });
+
+document.getElementById("treasury").addEventListener("click", function(){
+  console.log(currentWindowIndex);
+    if (currentWindowIndex != 5) {
+      console.log(currentWindowIndex);
+      currentWindowIndex = 5;
+      refresh();
+    }
+});
 function refresh() {
   if (currentWindowIndex == 0) {
     document.querySelector(".home-contents").classList.toggle("active");
@@ -53,30 +62,42 @@ function refresh() {
     document.querySelector(".chat-plane").classList.remove("active");
     document.querySelector(".swap-plane").classList.remove("active");
     document.querySelector(".nodes-plane").classList.remove("active");
+    document.querySelector(".treasury-plane").classList.remove("active");
   } else if (currentWindowIndex == 1) {
     document.querySelector(".home-contents").classList.remove("active");
     document.querySelector(".dashboard-plane").classList.toggle("active");
     document.querySelector(".chat-plane").classList.remove("active");
     document.querySelector(".swap-plane").classList.remove("active");
     document.querySelector(".nodes-plane").classList.remove("active");
+    document.querySelector(".treasury-plane").classList.remove("active");
   } else if (currentWindowIndex == 2) {
     document.querySelector(".home-contents").classList.remove("active");
     document.querySelector(".dashboard-plane").classList.remove("active");
     document.querySelector(".chat-plane").classList.remove("active");
     document.querySelector(".swap-plane").classList.toggle("active");
     document.querySelector(".nodes-plane").classList.remove("active");
+    document.querySelector(".treasury-plane").classList.remove("active");
   } else if (currentWindowIndex == 3) {
     document.querySelector(".home-contents").classList.remove("active");
     document.querySelector(".dashboard-plane").classList.remove("active");
     document.querySelector(".swap-plane").classList.remove("active");
     document.querySelector(".chat-plane").classList.toggle("active");
     document.querySelector(".nodes-plane").classList.remove("active");
+    document.querySelector(".treasury-plane").classList.remove("active");
   } else if (currentWindowIndex == 4) {
     document.querySelector(".home-contents").classList.remove("active");
     document.querySelector(".dashboard-plane").classList.remove("active");
     document.querySelector(".swap-plane").classList.remove("active");
     document.querySelector(".chat-plane").classList.remove("active");
     document.querySelector(".nodes-plane").classList.toggle("active");
+    document.querySelector(".treasury-plane").classList.remove("active");
+  } else if (currentWindowIndex == 5) {
+    document.querySelector(".home-contents").classList.remove("active");
+    document.querySelector(".dashboard-plane").classList.remove("active");
+    document.querySelector(".swap-plane").classList.remove("active");
+    document.querySelector(".chat-plane").classList.remove("active");
+    document.querySelector(".nodes-plane").classList.remove("active");
+    document.querySelector(".treasury-plane").classList.toggle("active");
   }
   
 

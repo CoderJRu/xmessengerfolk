@@ -558,6 +558,172 @@ input:checked + .toggle-slider:before {
   margin: 0;
   letter-spacing: 1px;
 }
+
+/* Treasury Plane Styling */
+.treasury-plane {
+  z-index: 0;
+  opacity: 0;
+}
+
+.treasury-plane.active {
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0px auto;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  margin: auto;
+  background: rgba(14,16,19, 1);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+  transition: 1.2s;
+}
+
+.treasury-container {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.treasury-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.treasury-icon {
+  color: var(--Text-Primary, var(--White, #FFF));
+  margin-bottom: 15px;
+}
+
+.treasury-title {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.treasury-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.treasury-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.treasury-section-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.treasury-section-title {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.5px;
+}
+
+.treasury-section-subtitle {
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.treasury-main-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.treasury-amount {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.treasury-gain {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 255, 136, 0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.treasury-gain-text {
+  color: #00ff88;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.treasury-chart {
+  margin-top: 15px;
+}
+
+.treasury-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 80px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.treasury-bar {
+  flex: 1;
+  max-width: 25px;
+  background: linear-gradient(180deg, #00ff88 0%, rgba(0, 255, 136, 0.3) 100%);
+  border-radius: 3px;
+  min-height: 8px;
+  transition: all 0.3s ease;
+}
+
+.treasury-bar:hover {
+  background: linear-gradient(180deg, #00ff88 0%, rgba(0, 255, 136, 0.5) 100%);
+  transform: scaleY(1.1);
+}
+
+.treasury-chart-labels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0 10px;
+}
+
+.treasury-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px 0 0 0;
+}
 .send-button{
   position: relative;
   top: -10px;
