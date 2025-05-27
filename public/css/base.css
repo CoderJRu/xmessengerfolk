@@ -519,7 +519,7 @@ input:checked + .toggle-slider:before {
 .dashboard-stats {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
 }
 
 .stat-item {
@@ -537,7 +537,7 @@ input:checked + .toggle-slider:before {
 .stat-label {
   color: var(--Text-Secondary, #9AA0A6);
   font-family: "Helvetica Neue";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   margin: 0;
 }
