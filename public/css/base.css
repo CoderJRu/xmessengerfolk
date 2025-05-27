@@ -513,7 +513,7 @@ input:checked + .toggle-slider:before {
   font-weight: 600;
   margin: 0 0 15px 0;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .dashboard-stats {
