@@ -523,57 +523,54 @@
 
 
         <div class="nodes-container">
-          <!-- Top Stats Section -->
-          <div class="nodes-top-section">
-            <div class="nodes-stats-dual">
-              <div class="nodes-stat-col">
+          <!-- Group 1: Core Performance Metrics -->
+          <div class="nodes-grouped-section">
+            <div class="nodes-group-left">
+              <div class="nodes-stat-item">
                 <p class="nodes-stat-label">mTPS</p>
-                <p class="nodes-stat-value-large">3147.62</p>
+                <p class="nodes-stat-value-xl">3147.62</p>
                 <p class="nodes-stat-desc">Mean 24hr mTPS</p>
               </div>
-              <div class="nodes-stat-col">
+            </div>
+            
+            <div class="nodes-vertical-separator"></div>
+            
+            <div class="nodes-group-right">
+              <div class="nodes-stat-item">
                 <p class="nodes-stat-label">Latency</p>
-                <p class="nodes-stat-value-large">1%</p>
+                <p class="nodes-stat-value-xl">1%</p>
                 <p class="nodes-stat-desc">Mean 24hr latency</p>
               </div>
             </div>
           </div>
 
-          <!-- Nodes Chart Section -->
-          <div class="nodes-chart-wrapper">
-            <p class="nodes-section-label">Nodes</p>
-            <div class="nodes-main-chart">
-              <div class="nodes-chart-area">
-                <p class="nodes-chart-placeholder-text">Mins</p>
+          <!-- Group 2: Throughput & Network Stats -->
+          <div class="nodes-grouped-section">
+            <div class="nodes-group-left">
+              <div class="nodes-stat-item">
+                <p class="nodes-stat-label">Total Rounds</p>
+                <p class="nodes-stat-value-lg">236.13m</p>
+              </div>
+              
+              <div class="nodes-stat-item">
+                <p class="nodes-stat-label">Total Throughput (24hr)</p>
+                <p class="nodes-stat-value-lg">278 GB</p>
               </div>
             </div>
-            <p class="nodes-chart-caption">Mean 24hr latency</p>
-          </div>
-
-          <!-- Two Column Stats -->
-          <div class="nodes-dual-stats">
-            <div class="nodes-stat-block">
-              <p class="nodes-label">Total rounds</p>
-              <p class="nodes-value">236.13m</p>
+            
+            <div class="nodes-vertical-separator"></div>
+            
+            <div class="nodes-group-right">
+              <div class="nodes-stat-item">
+                <p class="nodes-stat-label">Average Throughput / hr</p>
+                <p class="nodes-stat-value-lg">11.6 GB</p>
+              </div>
+              
+              <div class="nodes-stat-item">
+                <p class="nodes-stat-label">Realtime Success Rate (24hr)</p>
+                <p class="nodes-stat-value-lg">99.69%</p>
+              </div>
             </div>
-            <div class="nodes-stat-block">
-              <p class="nodes-label">Average throughput / hr</p>
-              <p class="nodes-value">11.6 GB</p>
-            </div>
-          </div>
-
-          <!-- Single Stat -->
-          <div class="nodes-single-stat">
-            <p class="nodes-label">Total throughput (24hr)</p>
-            <p class="nodes-value">278 GB</p>
-            <hr class="nodes-divider">
-          </div>
-
-          <!-- Success Rate 1 -->
-          <div class="nodes-single-stat">
-            <p class="nodes-label">Realtime success rate (24hr)</p>
-            <p class="nodes-value">99.69%</p>
-            <hr class="nodes-divider">
           </div>
 
           <!-- Success Rate 2 with Arrow -->

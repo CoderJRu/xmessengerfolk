@@ -752,11 +752,78 @@ input:checked + .toggle-slider:before {
 
 .vertical-divider {
   width: 1px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  height:220px;
+}
+/* Nodes Grouped Sections */
+.nodes-grouped-section {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin: 25px 0;
+  min-height: 120px;
+}
+
+.nodes-group-left,
+.nodes-group-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px 20px;
+}
+
+.nodes-vertical-separator {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
   height: 100%;
   align-self: stretch;
-  min-height: 140px;
+  margin: 0 15px;
 }
+
+.nodes-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.nodes-stat-label {
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  text-transform: capitalize;
+}
+
+.nodes-stat-value-xl {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  letter-spacing: 1px;
+}
+
+.nodes-stat-value-lg {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.5px;
+}
+
+.nodes-stat-desc {
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
 .send-button{
   position: relative;
   top: -10px;
