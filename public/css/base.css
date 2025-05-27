@@ -755,14 +755,6 @@ input:checked + .toggle-slider:before {
   background: rgba(255, 255, 255, 0.2);
   height:220px;
 }
-
-.nodes-stat-divider {
-  width: 1px;
-  background: rgba(255, 255, 255, 0.3);
-  height: 100%;
-  align-self: stretch;
-}
-
 .send-button{
   position: relative;
   top: -10px;
@@ -1708,7 +1700,8 @@ z-index: 1;
 
 .nodes-stats-dual {
   display: flex;
-  gap: 50px;
+  align-items: stretch;
+  gap: 0;
 }
 
 .nodes-stat-col {
@@ -1733,6 +1726,14 @@ z-index: 1;
   color: #666;
   font-size: 12px;
   margin: 0;
+}
+.nodes-stat-divider{
+  border-left: 6px solid green;
+  height: 130px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
 }
 
 /* Chart Wrapper */
@@ -1933,19 +1934,21 @@ z-index: 1;
     gap: 30px;
   }
 
-  /* Responsive styles for nodes plane */
+  /* Keep consistent nodes layout across all screen sizes */
   .nodes-stats-dual {
-    flex-direction: column;
-    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
   }
   
   .nodes-dual-stats {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     gap: 20px;
   }
   
   .nodes-stat-value-large {
-    font-size: 24px;
+    font-size: 28px;
   }
 
 .nodes-stat-value {
