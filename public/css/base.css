@@ -724,6 +724,14 @@ input:checked + .toggle-slider:before {
   background: rgba(255, 255, 255, 0.1);
   margin: 20px 0 0 0;
 }
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 25px 0 20px 0;
+  width: 100%;
+}
 .send-button{
   position: relative;
   top: -10px;
