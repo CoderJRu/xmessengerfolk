@@ -519,7 +519,7 @@ input:checked + .toggle-slider:before {
 .dashboard-stats {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .stat-item {
