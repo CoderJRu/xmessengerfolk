@@ -519,17 +519,13 @@ input:checked + .toggle-slider:before {
 .dashboard-stats {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  text-align: center;
-  max-width: 280px;
-  margin: 0 auto;
+  gap: 8px;
 }
 
 .stat-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
 }
 
 .stat-item-single {
@@ -541,8 +537,8 @@ input:checked + .toggle-slider:before {
 .stat-label {
   color: var(--Text-Secondary, #9AA0A6);
   font-family: "Helvetica Neue";
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   margin: 0;
 }
 
