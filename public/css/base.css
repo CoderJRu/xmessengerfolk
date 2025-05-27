@@ -752,9 +752,10 @@ input:checked + .toggle-slider:before {
 
 .vertical-divider {
   width: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.5);
   height: 100%;
   align-self: stretch;
+  min-height: 140px;
 }
 .send-button{
   position: relative;
