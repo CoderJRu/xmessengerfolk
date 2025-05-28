@@ -725,6 +725,112 @@ input:checked + .toggle-slider:before {
   margin: 20px 0 0 0;
 }
 
+/* Validator Plane Styling */
+.validator-plane {
+  z-index: 0;
+  opacity: 0;
+}
+
+.validator-plane.active {
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0px auto;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  margin: auto;
+  background: rgba(14,16,19, 1);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+  transition: 1.2s;
+}
+
+.validator-container {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.validator-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.validator-icon {
+  color: var(--Text-Primary, var(--White, #FFF));
+  margin-bottom: 15px;
+}
+
+.validator-title {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+}
+
+.validator-subtitle {
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.validator-content {
+  width: 100%;
+}
+
+.validator-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.validator-node-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.validator-node-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.validator-node-title {
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.5px;
+}
+
+.validator-node-slots {
+  color: var(--Text-Secondary, #9AA0A6);
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
 .section-divider {
   border: none;
   height: 1px;
