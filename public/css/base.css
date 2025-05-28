@@ -793,10 +793,9 @@ input:checked + .toggle-slider:before {
 
 .validator-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   margin-top: 20px;
-  padding: 0 10px;
 }
 
 .validator-node-item {
@@ -830,38 +829,6 @@ input:checked + .toggle-slider:before {
   font-weight: 500;
   margin: 0;
   letter-spacing: 0.3px;
-}
-
-/* Mobile responsive styles for validator plane */
-@media (max-width: 600px) {
-  .validator-container {
-    width: 95%;
-    padding: 15px;
-  }
-  
-  .validator-list {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 5px;
-  }
-  
-  .validator-node-item {
-    padding: 15px;
-    margin-bottom: 0;
-  }
-  
-  .validator-title {
-    font-size: 22px;
-  }
-  
-  .validator-subtitle {
-    font-size: 14px;
-  }
-  
-  .validator-plane.active {
-    top: 60px;
-    padding: 10px 0;
-  }
 }
 
 .section-divider {
