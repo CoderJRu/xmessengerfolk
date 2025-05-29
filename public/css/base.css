@@ -1835,6 +1835,7 @@ z-index: 1;
   font-size: 14px;
   font-weight: 400;
   margin: 0 0 12px 0;
+  text-align: left;
 }
 
 .nodes-stat-value-large {
@@ -1842,6 +1843,7 @@ z-index: 1;
   font-size: 28px;
   font-weight: 600;
   margin: 0 0 12px 0;
+  text-align: left;
 }
 
 .nodes-stat-desc {
@@ -2157,6 +2159,7 @@ z-index: 1;
   font-size: 14px;
   font-weight: 400;
   margin: 0 0 5px 0;
+  text-align: left;
 }
 
 .nodes-grid-value {
@@ -2164,12 +2167,14 @@ z-index: 1;
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 5px 0;
+  text-align: left;
 }
 
 .nodes-grid-sub {
   color: #666;
   font-size: 12px;
   margin: 0;
+  text-align: left;
 }
 
 .nodes-single-metric {
