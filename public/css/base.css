@@ -866,73 +866,12 @@ input:checked + .toggle-slider:before {
   flex-direction: column;
   justify-content: space-evenly;
   padding: 20px 15px;
-  min-width: 0; /* Prevents flex items from overflowing */
 }
 
 .vertical-divider {
   width: 1px;
   background: rgba(60, 179, 113, 0.2);
   height:220px;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .dual-section-container {
-    flex-direction: column;
-    min-height: auto;
-  }
-  
-  .dual-section-left,
-  .dual-section-right {
-    padding: 15px 10px;
-  }
-  
-  .vertical-divider {
-    height: 1px;
-    width: 100%;
-    margin: 10px 0;
-  }
-  
-  .dashboard-stats {
-    gap: 10px;
-  }
-  
-  .stat-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-  
-  .stat-label {
-    font-size: 13px;
-  }
-  
-  .stat-value {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .dual-section-left,
-  .dual-section-right {
-    padding: 12px 8px;
-  }
-  
-  .rewards-para {
-    font-size: 16px;
-  }
-  
-  .dashboard-stats {
-    gap: 8px;
-  }
-  
-  .stat-label {
-    font-size: 12px;
-  }
-  
-  .stat-value {
-    font-size: 14px;
-  }
 }
 .send-button{
   position: relative;
