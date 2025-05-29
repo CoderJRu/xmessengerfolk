@@ -538,6 +538,9 @@ input:checked + .toggle-slider:before {
   color: var(--Text-Secondary, #9AA0A6);
   font-family: "Helvetica Neue";
   font-size: 14px;
+   @media(max-width: 600px){
+     font-size: 10px;
+   }
   font-weight: 500;
   margin: 0;
 }
