@@ -585,7 +585,9 @@ input:checked + .toggle-slider:before {
   opacity: 1;
   transition: 1.2s;
 }
-
+.left-arnchor{
+  text-align: left;
+}
 .treasury-container {
   width: 90%;
   max-width: 500px;
