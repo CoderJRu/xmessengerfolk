@@ -526,42 +526,37 @@ input:checked + .toggle-slider:before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: left;
 }
 
 .stat-item-single {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  text-align: left;
 }
 
 .stat-label {
   color: var(--Text-Secondary, #9AA0A6);
   font-family: "Helvetica Neue";
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   margin: 0;
-  text-align: left;
 }
 
 .stat-value {
   color: var(--Text-Primary, var(--White, #FFF));
   font-family: "Helvetica Neue";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0;
-  text-align: left;
 }
 
 .stat-value-large {
   color: var(--Text-Primary, var(--White, #FFF));
   font-family: "Helvetica Neue";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   margin: 0;
-  letter-spacing: 0.5px;
-  text-align: left;
+  letter-spacing: 1px;
 }
 
 /* Treasury Plane Styling */
