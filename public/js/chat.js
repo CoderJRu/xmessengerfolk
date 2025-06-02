@@ -1,49 +1,5 @@
 // Chat interface functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const contactsView = document.getElementById('chat-contacts-view');
-    const chatInterface = document.getElementById('chat-interface');
-    const contactItems = document.querySelectorAll('.contact-item');
-    const chatBackBtn = document.getElementById('chat-back-btn');
-    const contactsBackBtn = document.getElementById('contacts-back-btn');
-
-    // Contact item click functionality
-    contactItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const contactId = this.getAttribute('data-contact');
-            const username = this.querySelector('.disp-items').textContent.trim();
-            
-            // Update chat interface with selected contact
-            const chatUsername = document.querySelector('.chat-username');
-            if (chatUsername) {
-                chatUsername.textContent = username;
-            }
-            
-            // Switch to chat interface
-            contactsView.style.display = 'none';
-            chatInterface.style.display = 'flex';
-        });
-    });
-
-    // Chat back button - return to contacts list
-    if (chatBackBtn) {
-        chatBackBtn.addEventListener('click', function() {
-            contactsView.style.display = 'block';
-            chatInterface.style.display = 'none';
-        });
-    }
-
-    // Contacts back button - return to main navigation
-    if (contactsBackBtn) {
-        contactsBackBtn.addEventListener('click', function() {
-            if (typeof currentWindowIndex !== 'undefined') {
-                currentWindowIndex = 1; // Go back to dashboard
-                if (typeof refresh === 'function') {
-                    refresh();
-                }
-            }
-        });
-    }
-
     // Dropdown menu functionality
     const chatMenuToggle = document.getElementById('chat-menu-toggle');
     const chatDropdown = document.getElementById('chat-dropdown');
@@ -101,6 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 sendMessage();
+            }
+        });
+    }
+
+    // Back button functionality
+    const chatBackBtn = document.getElementById('chat-back-btn');
+    if (chatBackBtn) {
+        chatBackBtn.addEventListener('click', function() {
+            // Use existing navigation system
+            if (typeof currentWindowIndex !== 'undefined') {
+                currentWindowIndex = 1; // Go back to dashboard
+                if (typeof refresh === 'function') {
+                    refresh();
+                }
             }
         });
     }
