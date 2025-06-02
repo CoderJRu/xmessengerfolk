@@ -1,6 +1,52 @@
 // Chat interface functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown menu functionality
+    const contactListView = document.getElementById('contact-list-view');
+    const chatInterface = document.getElementById('chat-interface');
+    const contactItems = document.querySelectorAll('.contact-item');
+    const chatBackBtn = document.getElementById('chat-back-btn');
+    const contactsBackBtn = document.getElementById('contacts-back-btn');
+    const chatUsername = document.getElementById('chat-username');
+    const chatLastSeen = document.getElementById('chat-last-seen');
+
+    // Contact item click functionality - toggle to chat interface
+    contactItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const username = this.getAttribute('data-username');
+            const lastSeen = this.getAttribute('data-lastseen');
+            
+            // Update chat interface with selected contact info
+            if (chatUsername) chatUsername.textContent = username;
+            if (chatLastSeen) chatLastSeen.textContent = lastSeen;
+            
+            // Toggle views - show chat interface, hide contact list
+            contactListView.style.display = 'none';
+            chatInterface.style.display = 'flex';
+        });
+    });
+
+    // Chat back button - return to contact list
+    if (chatBackBtn) {
+        chatBackBtn.addEventListener('click', function() {
+            // Toggle views - show contact list, hide chat interface
+            contactListView.style.display = 'block';
+            chatInterface.style.display = 'none';
+        });
+    }
+
+    // Contacts back button - return to main navigation
+    if (contactsBackBtn) {
+        contactsBackBtn.addEventListener('click', function() {
+            // Use existing navigation system
+            if (typeof currentWindowIndex !== 'undefined') {
+                currentWindowIndex = 1; // Go back to dashboard
+                if (typeof refresh === 'function') {
+                    refresh();
+                }
+            }
+        });
+    }
+
+    // 3-dot menu dropdown functionality
     const chatMenuToggle = document.getElementById('chat-menu-toggle');
     const chatDropdown = document.getElementById('chat-dropdown');
 
@@ -20,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Message input functionality
-    const messageInput = document.querySelector('.chat-message-input');
-    const sendBtn = document.querySelector('.chat-send-btn');
-    const messagesContainer = document.querySelector('.chat-messages');
+    const messageInput = document.getElementById('chat-message-input');
+    const sendBtn = document.getElementById('chat-send-btn');
+    const messagesContainer = document.getElementById('chat-messages');
 
     if (messageInput && sendBtn && messagesContainer) {
         function sendMessage() {
@@ -51,26 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        // Send button click
         sendBtn.addEventListener('click', sendMessage);
         
+        // Enter key press
         messageInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 sendMessage();
-            }
-        });
-    }
-
-    // Back button functionality
-    const chatBackBtn = document.getElementById('chat-back-btn');
-    if (chatBackBtn) {
-        chatBackBtn.addEventListener('click', function() {
-            // Use existing navigation system
-            if (typeof currentWindowIndex !== 'undefined') {
-                currentWindowIndex = 1; // Go back to dashboard
-                if (typeof refresh === 'function') {
-                    refresh();
-                }
             }
         });
     }
