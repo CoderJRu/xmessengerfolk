@@ -67,7 +67,11 @@
   padding: 12px 16px;
   background: var(--background-color, #1a1a1a);
   border-bottom: 1px solid #333;
-  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   min-height: 60px;
 }
 
@@ -133,6 +137,16 @@
   .chat-user-info p {
     font-size: 10px;
   }
+  
+  .chat-messages {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: calc(100vh - 100px);
+  }
+  
+  .chat-input-bar {
+    min-height: 50px;
+  }
 }
 
 .chat-menu-dropdown {
@@ -185,8 +199,9 @@
   padding: 12px;
   overflow-y: auto;
   background: var(--background-color, #1a1a1a);
-  min-height: 0;
-  max-height: calc(100vh - 140px);
+  margin-top: 60px;
+  margin-bottom: 60px;
+  height: calc(100vh - 120px);
 }
 
 .message {
@@ -231,7 +246,11 @@
   background: var(--background-color, #1a1a1a);
   border-top: 1px solid #333;
   gap: 6px;
-  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   min-height: 60px;
 }
 
