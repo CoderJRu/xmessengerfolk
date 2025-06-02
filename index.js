@@ -9,7 +9,7 @@ import { createClient } from "@supabase/supabase-js";
 import { generateID, generateFloatID, delay, abbrNum } from "./matheFunc.js";
 import { lastNames, firstNames } from "./names.js";
 import DeploymentReadinessChecker from "./deployment-checker.js";
-import { setupMessenger } from "./instantMessage.js";
+//import { setupMessenger } from "./instantMessage.js";
 const app = express();
 // Add error handling for unhandled rejections
 process.on("unhandledRejection", (reason, promise) => {
