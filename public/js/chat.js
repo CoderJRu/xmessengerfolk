@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Chat back button - return to contact list
+    // Chat back button - return to contact list (toggles dsh-items-upper)
     if (chatBackBtn) {
         chatBackBtn.addEventListener('click', function() {
             // Toggle views - show contact list, hide chat interface
