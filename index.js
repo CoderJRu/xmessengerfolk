@@ -1,16 +1,19 @@
 import express from "express";
-import { connectSdk, loggingMnemonics, generateKeypair } from "./demosInstance.js";
+import {
+  connectSdk,
+  loggingMnemonics,
+  generateKeypair,
+} from "./demosInstance.js";
 import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
 import { generateID, generateFloatID, delay, abbrNum } from "./matheFunc.js";
 import { lastNames, firstNames } from "./names.js";
-import DeploymentReadinessChecker from './deployment-checker.js';
-
+import DeploymentReadinessChecker from "./deployment-checker.js";
+import { setupMessenger } from "./instantMessage.js";
 const app = express();
-
 // Add error handling for unhandled rejections
-process.on('unhandledRejection', (reason, promise) => {
-  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+process.on("unhandledRejection", (reason, promise) => {
+  console.log("Unhandled Rejection at:", promise, "reason:", reason);
 });
 const supaKey = process.env["SUPABASE_KEY"];
 const supaUrl = process.env["SUPABASE_URL"];
@@ -125,7 +128,7 @@ app.get("/deployment-status", async (req, res) => {
   try {
     const checker = new DeploymentReadinessChecker();
     const result = await checker.runAllChecks();
-    
+
     res.status(200).json({
       ready: result.ready,
       score: result.percentage,
@@ -133,13 +136,17 @@ app.get("/deployment-status", async (req, res) => {
         total_checks: result.checks,
         errors: result.errors,
         warnings: result.warnings,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       },
-      message: result.ready ? "Application is ready for deployment!" : "Issues found - check logs for details"
+      message: result.ready
+        ? "Application is ready for deployment!"
+        : "Issues found - check logs for details",
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: "Deployment check failed", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Deployment check failed", details: err.message });
   }
 });
 
@@ -149,15 +156,17 @@ app.get("/health", (req, res) => {
     status: "healthy",
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
-    version: "1.0.0"
+    version: "1.0.0",
   });
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`🚀 Deployment checker available at: /deployment-status`);
-}).on('error', (err) => {
-  console.error('Server failed to start:', err);
-  process.exit(1);
-});
+app
+  .listen(PORT, "0.0.0.0", () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log(`🚀 Deployment checker available at: /deployment-status`);
+  })
+  .on("error", (err) => {
+    console.error("Server failed to start:", err);
+    process.exit(1);
+  });

@@ -390,21 +390,91 @@
     </section>
     <!--Messages-->
     <section class ="chat-plane">
-      <div class ="dsh-items-upper">
-           <div class = "topdiv-margin-blend">
-              <div class="nodes-flex-div">
-                <div class="swap-parent-div">
-                  <svg id="send-return" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M7.373 12.75L13.0693 18.4462L12 19.5L4.5 12L12 4.5L13.0693 5.55375L7.373 11.25H19.5V12.75H7.373Z" fill="white"/>
-                  </svg>
-                  <p class= "swap-text"></p>
-               
-                </div>
+      <div class="chat-container">
+        <!-- Top Menu Bar -->
+        <div class="chat-header">
+          <div class="chat-header-left">
+            <svg id="chat-back-btn" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7.373 12.75L13.0693 18.4462L12 19.5L4.5 12L12 4.5L13.0693 5.55375L7.373 11.25H19.5V12.75H7.373Z" fill="white"/>
+            </svg>
+            <img class="chat-user-avatar" src="img/person-img.png" alt="User Avatar">
+            <div class="chat-user-info">
+              <h3 class="chat-username">Ox1a...b12c</h3>
+              <p class="chat-last-seen">Last seen 2 hours ago</p>
+            </div>
+          </div>
+          <div class="chat-header-right">
+            <div class="chat-menu-dropdown">
+              <button class="chat-menu-btn" id="chat-menu-toggle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="2" fill="white"/>
+                  <circle cx="12" cy="5" r="2" fill="white"/>
+                  <circle cx="12" cy="19" r="2" fill="white"/>
+                </svg>
+              </button>
+              <div class="chat-dropdown-content" id="chat-dropdown">
+                <a href="#" class="chat-dropdown-item">View Profile</a>
+                <a href="#" class="chat-dropdown-item">Delete Chat</a>
+                <a href="#" class="chat-dropdown-item">Block User</a>
               </div>
+            </div>
+          </div>
+        </div>
 
-             <div class="search-div">
-               <input class = "search-msgs" type="text" placeholder="🔍 Search">
-             </div>
+        <!-- Chat Messages Area -->
+        <div class="chat-messages">
+          <div class="message received">
+            <div class="message-content">Hey, how's it going?</div>
+            <div class="message-time">4:28 PM</div>
+          </div>
+          <div class="message sent">
+            <div class="message-content">Good! Just checking the markets</div>
+            <div class="message-time">4:30 PM</div>
+          </div>
+          <div class="message received">
+            <div class="message-content">I'm gunna get more bags.</div>
+            <div class="message-time">4:32 PM</div>
+          </div>
+        </div>
+
+        <!-- Bottom Input Bar -->
+        <div class="chat-input-bar">
+          <button class="chat-input-btn search-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+              <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+          <button class="chat-input-btn emoji-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="2"/>
+              <line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+          <input type="text" class="chat-message-input" placeholder="Type a message...">
+          <button class="chat-input-btn gif-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M9 9h6v6H9z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+          <button class="chat-input-btn media-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+              <path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+          <button class="chat-send-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
              <div class= "offsetmod dsh-items-upper">
                <div class = "names-disp">
                  <ul class = "namesdisp-ul">

@@ -49,7 +49,7 @@ export const loggingMnemonics = async (mnemonics) => {
   const msg = "Xmessenger is coming!⚔️⚔️⚔️";
   const bufferMsg = Buffer.from(msg);
   const [_status, signature] = await identity.sign(bufferMsg);
-  console.log("signature is ", message);
+  console.log("signature is ", identity.publicKey);
   await identity.logout();
   return {
     status: status,

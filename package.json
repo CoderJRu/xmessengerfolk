@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@kynesyslabs/demosdk": "^2.2.44",
+    "@kynesyslabs/demosdk": "^2.2.46",
     "@supabase/supabase-js": "^2.21.0",
     "bip39": "^3.1.0",
     "cors": "^2.8.5",
