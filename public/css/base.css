@@ -80,20 +80,26 @@
   min-width: 0;
 }
 
-.chat-header-left svg {
+.chat-back-button {
+  background: none;
+  border: none;
   cursor: pointer;
   padding: 8px;
-  margin: -8px;
   border-radius: 4px;
   transition: background 0.2s;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
-.chat-header-left svg:hover {
+.chat-back-button:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-back-button svg {
+  display: block;
 }
 
 .chat-user-avatar {
@@ -307,12 +313,16 @@
     gap: 6px;
   }
   
-  .chat-header-left svg {
-    padding: 8px;
-    margin: -8px;
+  .chat-back-button {
+    padding: 12px;
+    min-width: 44px;
+    min-height: 44px;
+    margin: -4px;
+  }
+  
+  .chat-back-button svg {
     width: 20px;
     height: 20px;
-    box-sizing: content-box;
   }
   
   .chat-user-avatar {
