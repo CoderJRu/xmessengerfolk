@@ -80,12 +80,10 @@
   min-width: 0;
 }
 
-.chat-back-button {
-  background: none;
-  border: none;
+.chat-back-wrapper {
   cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 8px;
   transition: background 0.2s;
   flex-shrink: 0;
   display: flex;
@@ -95,16 +93,24 @@
   position: relative;
   z-index: 100;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
   touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.chat-back-button:hover {
+.chat-back-wrapper:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.chat-back-button svg {
+.chat-back-wrapper:active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0.95);
+}
+
+.chat-back-wrapper svg {
   display: block;
+  pointer-events: none;
 }
 
 .chat-user-avatar {
@@ -318,16 +324,19 @@
     gap: 6px;
   }
   
-  .chat-back-button {
-    padding: 12px;
-    min-width: 44px;
-    min-height: 44px;
-    margin: -4px;
+  .chat-back-wrapper {
+    padding: 0;
+    min-width: 52px;
+    min-height: 52px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .chat-back-button svg {
-    width: 20px;
-    height: 20px;
+  .chat-back-wrapper svg {
+    width: 24px;
+    height: 24px;
   }
   
   .chat-user-avatar {

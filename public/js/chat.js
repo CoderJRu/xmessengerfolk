@@ -24,20 +24,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Chat back button - return to contact list (toggles dsh-items-upper)
+    // Chat back button - return to contact list (mobile-optimized)
     if (chatBackBtn) {
-        function handleBackClick(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Chat back button clicked');
-            // Toggle views - show contact list, hide chat interface
+        let touchStarted = false;
+        
+        function goBackToContacts() {
+            console.log('Going back to contact list');
             contactListView.style.display = 'block';
             chatInterface.style.display = 'none';
         }
         
-        // Add both click and touchstart for mobile compatibility
-        chatBackBtn.addEventListener('click', handleBackClick);
-        chatBackBtn.addEventListener('touchstart', handleBackClick);
+        // Touch events for mobile
+        chatBackBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            touchStarted = true;
+            console.log('Touch started on back button');
+            this.style.background = 'rgba(255, 255, 255, 0.2)';
+        }, { passive: false });
+        
+        chatBackBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            if (touchStarted) {
+                console.log('Touch ended - executing back action');
+                goBackToContacts();
+                touchStarted = false;
+            }
+            this.style.background = '';
+        }, { passive: false });
+        
+        chatBackBtn.addEventListener('touchcancel', function(e) {
+            touchStarted = false;
+            this.style.background = '';
+        });
+        
+        // Click event for desktop
+        chatBackBtn.addEventListener('click', function(e) {
+            if (!touchStarted) {
+                e.preventDefault();
+                console.log('Click event - executing back action');
+                goBackToContacts();
+            }
+        });
     }
 
     // Contacts back button - return to main navigation
