@@ -87,7 +87,9 @@
   border-radius: 4px;
   transition: background 0.2s;
   flex-shrink: 0;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-header-left svg:hover {
@@ -306,14 +308,11 @@
   }
   
   .chat-header-left svg {
-    padding: 10px;
-    margin: -10px -6px -10px -10px;
+    padding: 8px;
+    margin: -8px;
     width: 20px;
     height: 20px;
-    min-width: 40px;
-    min-height: 40px;
-    position: relative;
-    z-index: 10;
+    box-sizing: content-box;
   }
   
   .chat-user-avatar {
