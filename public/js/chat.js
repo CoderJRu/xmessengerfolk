@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3-dot menu dropdown functionality
     const chatMenuToggle = document.getElementById('chat-menu-toggle');
     const chatDropdown = document.getElementById('chat-dropdown');
-    const mobileBackOption = document.getElementById('mobile-back-option');
 
     if (chatMenuToggle && chatDropdown) {
         chatMenuToggle.addEventListener('click', function(e) {
@@ -79,23 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!chatMenuToggle.contains(e.target) && !chatDropdown.contains(e.target)) {
                 chatDropdown.classList.remove('show');
             }
-        });
-    }
-
-    // Mobile back option functionality
-    if (mobileBackOption) {
-        mobileBackOption.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Mobile back option clicked');
-            
-            // Close dropdown
-            if (chatDropdown) {
-                chatDropdown.classList.remove('show');
-            }
-            
-            // Go back to contact list
-            contactListView.style.display = 'block';
-            chatInterface.style.display = 'none';
         });
     }
 
