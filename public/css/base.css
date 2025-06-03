@@ -92,6 +92,11 @@
   align-items: center;
   justify-content: center;
   color: white;
+  position: relative;
+  z-index: 100;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .chat-back-button:hover {

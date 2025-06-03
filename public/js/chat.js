@@ -26,11 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Chat back button - return to contact list (toggles dsh-items-upper)
     if (chatBackBtn) {
-        chatBackBtn.addEventListener('click', function() {
+        function handleBackClick(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Chat back button clicked');
             // Toggle views - show contact list, hide chat interface
             contactListView.style.display = 'block';
             chatInterface.style.display = 'none';
-        });
+        }
+        
+        // Add both click and touchstart for mobile compatibility
+        chatBackBtn.addEventListener('click', handleBackClick);
+        chatBackBtn.addEventListener('touchstart', handleBackClick);
     }
 
     // Contacts back button - return to main navigation
