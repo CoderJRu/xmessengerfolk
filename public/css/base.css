@@ -306,10 +306,12 @@
   }
   
   .chat-header-left svg {
-    padding: 12px;
-    margin: -12px -8px -12px -12px;
-    min-width: 44px;
-    min-height: 44px;
+    padding: 10px;
+    margin: -10px -6px -10px -10px;
+    width: 20px;
+    height: 20px;
+    min-width: 40px;
+    min-height: 40px;
     position: relative;
     z-index: 10;
   }
