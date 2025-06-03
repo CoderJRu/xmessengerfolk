@@ -322,8 +322,27 @@
   height: 16px;
 }
 
+/* Hide mobile back option on desktop */
+.mobile-back-option {
+  display: none;
+}
+
 /* Mobile responsive styles */
 @media (max-width: 480px) {
+  /* Hide back button on mobile */
+  .chat-back-container {
+    display: none;
+  }
+  
+  /* Show mobile back option in dropdown */
+  .mobile-back-option {
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    font-weight: 500;
+    color: #4CAF50;
+  }
   
   .chat-header {
     padding: 8px 12px;
@@ -332,22 +351,6 @@
   
   .chat-header-left {
     gap: 6px;
-  }
-  
-  .chat-back-container {
-    width: 56px;
-    height: 56px;
-    margin: -4px;
-  }
-  
-  .chat-back-touch-area {
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  .chat-back-icon {
-    width: 24px;
-    height: 24px;
   }
   
   .chat-user-avatar {
