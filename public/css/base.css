@@ -58,6 +58,7 @@
   background: var(--background-color, #1a1a1a);
   position: relative;
   overflow: hidden;
+  top: 20px;
 }
 
 .chat-header {
@@ -69,7 +70,6 @@
   border-bottom: 1px solid #333;
   flex-shrink: 0;
   min-height: 60px;
- 
 }
 
 .chat-header-left {
@@ -210,6 +210,7 @@
   gap: 6px;
   flex-shrink: 0;
   min-height: 60px;
+  margin-bottom: 58px;
 }
 
 .chat-input-btn {
@@ -601,7 +602,8 @@ margin: auto -40px;
   padding: 15px 20px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 5px;
 }
 
 .chat-header-left {
@@ -822,15 +824,14 @@ margin: auto -40px;
 }
 .chat-plane.active{
   text-align:center;
-  overflow-y: auto;
-  overflow-x: hidden;
+
   margin: 0px auto;
   position: fixed;
   align-items: center;
   justify-content: center;
   right: 0;
   left : 0;
-  top : 50px;
+  top : 65px;
   bottom: 0;
   margin:auto;
   background:  rgba(14,16,19, 1);
