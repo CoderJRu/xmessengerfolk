@@ -24,46 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Chat back button - return to contact list (mobile-optimized)
+    // Chat back button - simple and reliable
     if (chatBackBtn) {
-        let touchStarted = false;
-        
         function goBackToContacts() {
             console.log('Going back to contact list');
             contactListView.style.display = 'block';
             chatInterface.style.display = 'none';
         }
         
-        // Touch events for mobile
-        chatBackBtn.addEventListener('touchstart', function(e) {
+        // Universal event handler for all devices
+        chatBackBtn.addEventListener('pointerup', function(e) {
             e.preventDefault();
-            touchStarted = true;
-            console.log('Touch started on back button');
-            this.style.background = 'rgba(255, 255, 255, 0.2)';
-        }, { passive: false });
-        
-        chatBackBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            if (touchStarted) {
-                console.log('Touch ended - executing back action');
-                goBackToContacts();
-                touchStarted = false;
-            }
-            this.style.background = '';
-        }, { passive: false });
-        
-        chatBackBtn.addEventListener('touchcancel', function(e) {
-            touchStarted = false;
-            this.style.background = '';
+            e.stopPropagation();
+            console.log('Back button activated');
+            goBackToContacts();
         });
         
-        // Click event for desktop
+        // Fallback for older devices
         chatBackBtn.addEventListener('click', function(e) {
-            if (!touchStarted) {
-                e.preventDefault();
-                console.log('Click event - executing back action');
-                goBackToContacts();
-            }
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Back button clicked (fallback)');
+            goBackToContacts();
         });
     }
 
