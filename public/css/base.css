@@ -322,8 +322,27 @@
   height: 16px;
 }
 
+/* Hide mobile back option on desktop */
+.mobile-back-option {
+  display: none;
+}
+
 /* Mobile responsive styles */
 @media (max-width: 480px) {
+  /* Hide chat interface completely on mobile */
+  .chat-interface {
+    display: none !important;
+  }
+  
+  /* Show mobile back option */
+  .mobile-back-option {
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    font-weight: 500;
+  }
+  
   .chat-header {
     padding: 8px 12px;
     min-height: 50px;
