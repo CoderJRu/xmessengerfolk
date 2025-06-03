@@ -80,6 +80,18 @@
   min-width: 0;
 }
 
+.chat-header-left svg {
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.chat-header-left svg:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .chat-user-avatar {
   width: 32px;
   height: 32px;
@@ -289,6 +301,13 @@
   
   .chat-header-left {
     gap: 6px;
+  }
+  
+  .chat-header-left svg {
+    padding: 12px;
+    margin: -12px;
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .chat-user-avatar {
