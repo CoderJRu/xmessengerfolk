@@ -3,19 +3,20 @@ import { encryption } from "@kynesyslabs/demosdk";
 
 const unifiedCrypto = encryption.ucrypto;
 
-export async function setupMessenger() {
+export async function setupMessenger(mlKemAes, id) {
     // Generate identities
     /* NOTE: This part is not necessary when using a SDK instance 
     that has already generated identities */
-    const masterSeed = crypto.randomBytes(128);
-    console.log(masterSeed);
-    await unifiedCrypto.generateAllIdentities(masterSeed);
-    const mlKemAes = await unifiedCrypto.getIdentity("ml-kem-aes");
+    //const masterSeed = crypto.randomBytes(128);
+    //console.log(masterSeed);
+    //await unifiedCrypto.generateAllIdentities(masterSeed);
+    // const mlKemAes = await unifiedCrypto.getIdentity("ml-kem-aes");
 
     // Create and connect peer
     const peer = new instantMessaging.MessagingPeer({
-        serverUrl: "ws://your-signaling-server:3005",
-        clientId: "user-" + Date.now(),
+        serverUrl:
+            "http://84.247.128.61:3005",
+        clientId: "xm_user-" + id,
         publicKey: mlKemAes.publicKey,
     });
 
@@ -34,4 +35,4 @@ export async function setupMessenger() {
 }
 
 // Use the messenger
-const messenger = await setupMessenger();
+//const messenger = await setupMessenger();

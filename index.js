@@ -9,6 +9,7 @@ import { createClient } from "@supabase/supabase-js";
 import { generateID, generateFloatID, delay, abbrNum } from "./matheFunc.js";
 import { lastNames, firstNames } from "./names.js";
 import DeploymentReadinessChecker from "./deployment-checker.js";
+import { setupMessenger } from "./instantMessage.js";
 //import { setupMessenger } from "./instantMessage.js";
 const app = express();
 // Add error handling for unhandled rejections
@@ -115,12 +116,39 @@ app.post("/loginPhrase", async (req, res) => {
     );
     if (myData.length > 0) {
       var fetchedData = myData[0].data;
-      res.status(200).json({ _res: "success", data: fetchedData });
+      var myidentity = status.identity;
+      var peer = await setupMessenger(myidentity, fetchedData.id);
+      console.log("peer is ", peer);
+      res.status(200).json({ _res: "success", data: fetchedData, peer: peer });
     }
   } catch (err) {
     res.status(200).json({ _res: "error" });
     console.log(err);
   }
+});
+
+app.get("/sendMessage", async (req, res) => {
+  try {
+    let bodyJson = req.body;
+    var profileID = bodyJson.profileID;
+    var message = bodyJson.message;
+    var _phraseList = bodyJson.PhraseList;
+    var status = await loggingMnemonics(_phraseList);
+    var myidentity = status.identity;
+    //create a peer;
+
+    //await peer.sendMessage("target-peer-id", "Hello from me!");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get("/setChatBuddy", async (req, res) => {
+  try {
+    let bodyJson = req.body;
+    let reciever_pub = bodyJson.reciever_pub_key;
+    let sender_pub = bodyJson.sender_pub_key;
+  } catch (err) {}
 });
 
 // Intelligent deployment readiness checker endpoint

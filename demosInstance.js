@@ -1,10 +1,10 @@
 import { DemosWebAuth } from "@kynesyslabs/demosdk/websdk";
 import { demos } from "@kynesyslabs/demosdk/websdk";
 import bip39 from "bip39";
-
+import { setupMessenger } from "./instantMessage.js";
 export async function connectSdk() {
-  var result = await demos.connect("https://demosnode.discus.sh");
-  console.log(result);
+  var result = await demos.connect("http://84.247.128.61:53550");
+  console.log("nodes results ", result);
 }
 
 //me();
@@ -50,12 +50,16 @@ export const loggingMnemonics = async (mnemonics) => {
   const bufferMsg = Buffer.from(msg);
   const [_status, signature] = await identity.sign(bufferMsg);
   console.log("signature is ", identity.publicKey);
-  await identity.logout();
+ // const peer = await setupMessenger(identity, _id);
+  //await peer.sendMessage("target-peer-id", "Hello from me!");
+  //await identity.logout();
   return {
     status: status,
     keypair: keypair,
+    identity: identity,
   };
 };
+//
 
 export const loggingPrivateKey = async (privateKey) => {
   const [status, message] = await identity.login(privateKey);
