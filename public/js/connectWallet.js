@@ -8,8 +8,8 @@ export function updateUserData(username, publicKey) {
   data.username = username;
   data.publicKey = publicKey;
 }
-var phraseList = [];
-var publicKey = "";
+export var phraseList = [];
+export var publicKey = "";
 var privateKey = "";
 import { showLoading, hideLoading } from "./loading.js";
 showLoading();

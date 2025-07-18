@@ -52,6 +52,7 @@ const corsOption = {
     "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd",
     "https://xbundle-dapp.replit.app",
     "https://xbundle.cloud",
+    "http://84.247.128.61:3005",
   ],
   optionSucessStatus: 200,
 };
@@ -119,6 +120,7 @@ app.post("/loginPhrase", async (req, res) => {
       var myidentity = status.identity;
       var peer = await setupMessenger(myidentity, fetchedData.id);
       console.log("peer is ", peer);
+      //ceate a message recieve promise of the logged data
       res.status(200).json({ _res: "success", data: fetchedData, peer: peer });
     }
   } catch (err) {
@@ -127,30 +129,50 @@ app.post("/loginPhrase", async (req, res) => {
   }
 });
 
-app.get("/sendMessage", async (req, res) => {
+app.post("/sendMessage", async (req, res) => {
   try {
     let bodyJson = req.body;
     var profileID = bodyJson.profileID;
     var message = bodyJson.message;
+    var reciever_pub_key = bodyJson.currentChatBuddyPublicId;
     var _phraseList = bodyJson.PhraseList;
     var status = await loggingMnemonics(_phraseList);
     var myidentity = status.identity;
-    //create a peer;
+    var peer = await setupMessenger(myidentity, profileID);
+    //get reciver id
+    var myData = await FetchDb("user", "api", reciever_pub_key);
+    let reciever_id = 0;
+    if (myData.length > 0) {
+      var fetchedData = myData[0].data;
+      reciever_id = fetchedData.id;
+      //create a peer;
 
-    //await peer.sendMessage("target-peer-id", "Hello from me!");
+      await peer.sendMessage(`xm_user-${reciever_id}`, message);
+    }
   } catch (err) {
     console.log(err);
   }
 });
 
-app.get("/setChatBuddy", async (req, res) => {
+app.post("recieveMessageUpdates", async (req, res) => {
+  //late Update at most every 2secs
   try {
     let bodyJson = req.body;
-    let reciever_pub = bodyJson.reciever_pub_key;
-    let sender_pub = bodyJson.sender_pub_key;
-  } catch (err) {}
+    var profileID = bodyJson.profileID;
+    var _phraseList = bodyJson.PhraseList;
+    var status = await loggingMnemonics(_phraseList);
+    var myidentity = status.identity;
+    var peer = await setupMessenger(myidentity, profileID);
+    //missing step fetch list of chatt buddies id and pput them list
+    peer.onMessage((message, fromId) => {
+      console.log(`Message from ${fromId}:`, message);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
-
+//when a new public key is seacrhed and interatcted with automatically that individual becomes your chat buddy.
+app.post("setChatBuddy", async (req, res) => {});
 // Intelligent deployment readiness checker endpoint
 app.get("/deployment-status", async (req, res) => {
   try {
