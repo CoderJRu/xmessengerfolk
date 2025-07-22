@@ -173,6 +173,108 @@ app.post("recieveMessageUpdates", async (req, res) => {
 });
 //when a new public key is seacrhed and interatcted with automatically that individual becomes your chat buddy.
 app.post("setChatBuddy", async (req, res) => {});
+
+// Search users by public key
+app.post("/api/search-users", async (req, res) => {
+  try {
+    const { query } = req.body;
+    
+    if (!query || query.length < 3) {
+      return res.json([]);
+    }
+    
+    let searchResults;
+    
+    // If query is a complete 64-character hex string, search for exact match
+    if (query.length === 64 && /^[a-fA-F0-9]+$/.test(query)) {
+      const { data, error } = await supabase
+        .from('user')
+        .select('api, last_seen')
+        .eq('api', query);
+        
+      if (error) throw error;
+      searchResults = data;
+    } else {
+      // Search for partial matches using ILIKE
+      const { data, error } = await supabase
+        .from('user')
+        .select('api, last_seen')
+        .ilike('api', `%${query}%`)
+        .limit(10);
+        
+      if (error) throw error;
+      searchResults = data;
+    }
+    
+    // Format results for frontend
+    const formattedResults = searchResults.map(user => ({
+      public_key: user.api,
+      last_seen: user.last_seen || 'Never online',
+      status: 'Available for chat'
+    }));
+    
+    res.json(formattedResults);
+  } catch (error) {
+    console.error('Search error:', error);
+    res.status(500).json({ error: 'Search failed' });
+  }
+});
+
+// Update chat buddy and current chat
+app.post("/api/update-chat-buddy", async (req, res) => {
+  try {
+    const { currentUser, targetUser } = req.body;
+    
+    if (!currentUser || !targetUser) {
+      return res.status(400).json({ error: 'Missing required parameters' });
+    }
+    
+    // Get current user data
+    const { data: userData, error: fetchError } = await supabase
+      .from('user')
+      .select('chat_buddies')
+      .eq('api', currentUser)
+      .single();
+    
+    if (fetchError) throw fetchError;
+    
+    // Parse current chat buddies or initialize empty array
+    let chatBuddies = [];
+    if (userData.chat_buddies) {
+      try {
+        chatBuddies = JSON.parse(userData.chat_buddies);
+      } catch (e) {
+        chatBuddies = [];
+      }
+    }
+    
+    // Check if target user is already in chat buddies
+    if (!chatBuddies.includes(targetUser)) {
+      chatBuddies.push(targetUser);
+    }
+    
+    // Update database with new chat buddy and current chat
+    const { error: updateError } = await supabase
+      .from('user')
+      .update({
+        current_chat_buddy: targetUser,
+        chat_buddies: JSON.stringify(chatBuddies)
+      })
+      .eq('api', currentUser);
+    
+    if (updateError) throw updateError;
+    
+    res.json({ 
+      success: true, 
+      current_chat_buddy: targetUser,
+      chat_buddies: chatBuddies 
+    });
+  } catch (error) {
+    console.error('Update chat buddy error:', error);
+    res.status(500).json({ error: 'Failed to update chat buddy' });
+  }
+});
+
 // Intelligent deployment readiness checker endpoint
 app.get("/deployment-status", async (req, res) => {
   try {

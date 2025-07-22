@@ -1,8 +1,16 @@
-import { isConnected, phraseList,publicKey, data } from "./connectWallet.js";
+import { isConnected, phraseList, publicKey, data } from "./connectWallet.js";
 
+var currentChatBuddyPublicId = "";
+var currentUserPublicKey = "";
 
+// Function to set current user public key (called when wallet connects)
+export function setCurrentUserPublicKey(pubKey) {
+    currentUserPublicKey = pubKey;
+    console.log('Current user public key set in chat:', pubKey);
+}
 
-var currentChatBuddyPublicId ="";
+// Export for use in search.js
+export { currentUserPublicKey };
 
 // Chat interface functionality
 document.addEventListener("DOMContentLoaded", function () {
