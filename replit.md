@@ -35,10 +35,12 @@ A Node.js web application for encrypted messaging using the Kynesys Labs Demos S
 
 ## Recent Changes
 - **2025-01-22**: Fixed application startup issue
-  - Identified port 5000 was already in use
-  - Killed conflicting Node.js process
-  - Successfully started the application
-  - Server now running with SDK connection established
+  - Identified port 5000 was already in use by conflicting Node.js process
+  - Killed the conflicting process and cleared port 5000
+  - Successfully started the application on port 5000
+  - Server running with SDK connection established
+  - Health endpoint responding correctly
+  - Note: "bigint" warning is normal - app uses pure JS fallback
 
 ## Environment Variables Required
 - `SUPABASE_KEY` - Supabase project API key
