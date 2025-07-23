@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 messageInput.value = "";
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
-            
+            // CoderF starts here - send message to server
             var bodyJson = {
                 PhraseList: phraseList,
                 Data: data,
