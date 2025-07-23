@@ -42,6 +42,13 @@ A Node.js web application for encrypted messaging using the Kynesys Labs Demos S
   - Health endpoint responding correctly
   - Note: "bigint" warning is normal - app uses pure JS fallback
 
+- **2025-01-22**: Enhanced search results UI
+  - Updated search results to use chat-like component styling
+  - Public keys display as "Ox1a...b12c" format (4 chars + ... + 4 chars)
+  - Added blue accent styling and "NEW" badge for search results
+  - Results show "Ready to start chatting" message with current time
+  - Improved hover effects and animations for better UX
+
 ## Environment Variables Required
 - `SUPABASE_KEY` - Supabase project API key
 - `SUPABASE_URL` - Supabase project URL

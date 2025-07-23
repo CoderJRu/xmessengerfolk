@@ -69,10 +69,21 @@ document.addEventListener('DOMContentLoaded', function() {
         contactDiv.setAttribute('data-username', userData.public_key);
         contactDiv.setAttribute('data-lastseen', userData.last_seen || 'Never');
         
-        // Format public key for display (first 6 + ... + last 6 characters)
-        const displayKey = userData.public_key.length > 12 
-            ? `${userData.public_key.substring(0, 6)}...${userData.public_key.substring(userData.public_key.length - 6)}`
+        // Format public key for display (first 4 + ... + last 4 characters like "Ox1a...b12c")
+        const displayKey = userData.public_key.length > 8 
+            ? `${userData.public_key.substring(0, 4)}...${userData.public_key.substring(userData.public_key.length - 4)}`
             : userData.public_key;
+        
+        // Format timestamp to show time like "4:28 PM"
+        let timeDisplay = 'Now';
+        if (userData.last_seen && userData.last_seen !== 'Never online' && userData.last_seen !== 'Never') {
+            const now = new Date();
+            timeDisplay = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit', 
+                hour12: true 
+            });
+        }
         
         contactDiv.innerHTML = `
             <ul class="namesdisp-ul">
@@ -82,11 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${displayKey}
                     </li>
                     <li class="disp-items">
-                        ${userData.status || 'Available for chat'}
+                        Ready to start chatting
                     </li>
                 </div>
             </ul>
-            <p class="msg-timer-text">${userData.last_seen || 'Never'}</p>
+            <p class="msg-timer-text">${timeDisplay}</p>
         `;
         
         // Add click handler
